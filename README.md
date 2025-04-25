@@ -3,10 +3,11 @@
 # Overview [borrador template]
 [Aquí deberíamos añadir el Computation Graph después de la descripción]
 # Installation
-
+## build
+## doc
+yolo, mapa mre maybe?
 # IDEAS: [borrar más adelante] [propongo usar este párrafo como posibles usos, mientras que en overview describamos de manera técnica]
-restaurante, organizamos las mesas en plan restaurante, que el kobuki pregunte cuanta gente
-se va a sentar, y lleve a la gente a una mesa vacía, así hasta que se llenen las mesas
+Nuestra idea inicial se trata de implementación de cara a restaurante.
+El kobuki deberá preguntar cuánta gente debe sentar para una distribución de mesas dada. Deberá sentarlos en mesas vacías hasta que se complete la estancia. 
 
-que sea capaz de ver si una mesa está ocupada. 
-usos: yolo, mapa mre maybe?
+Debe ser capaz de detectar si la mesa está ocupada.
