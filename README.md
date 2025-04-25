@@ -1,7 +1,7 @@
 # proyecto-final-arqui-rumbacorp [cambiar por nombre del proyecto]
 
 # Overview [borrador template]
-
+[Aquí deberíamos añadir el Computation Graph después de la descripción]
 # Installation
 
 # IDEAS: [borrar más adelante] [propongo usar este párrafo como posibles usos, mientras que en overview describamos de manera técnica]
