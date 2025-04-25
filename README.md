@@ -1,6 +1,10 @@
-# proyecto-final-arqui-rumbacorp
+# proyecto-final-arqui-rumbacorp [cambiar por nombre del proyecto]
 
-IDEAS:
+# Overview [borrador template]
+
+# Installation
+
+# IDEAS: [borrar más adelante] [propongo usar este párrafo como posibles usos, mientras que en overview describamos de manera técnica]
 restaurante, organizamos las mesas en plan restaurante, que el kobuki pregunte cuanta gente
 se va a sentar, y lleve a la gente a una mesa vacía, así hasta que se llenen las mesas
 
