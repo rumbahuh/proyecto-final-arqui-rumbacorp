@@ -7,19 +7,23 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(behaviortree_cpp_v3 REQUIRED) # Esto lo he añadido del bumpgo
 find_package(geometry_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
+find_package(ament_index_cpp REQUIRED) # Esto lo he añadido del bumpgo
 
 set(dependencies
   rclcpp
+  behaviortree_cpp_v3
   geometry_msgs
   tf2_ros
   tf2
   tf2_geometry_msgs
   vision_msgs
+  ament_index_cpp
 )
 
 include_directories(include)
@@ -50,6 +54,9 @@ install(TARGETS
 )
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY behavior_tree_xml
+  DESTINATION share/${PROJECT_NAME}
+) # Esto lo he añadido del bumpgo pero no sé si es en lugar del launch
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

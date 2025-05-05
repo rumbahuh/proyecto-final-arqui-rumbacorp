@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="BehaviorTree">
+    <!-- ////////// -->
+    <BehaviorTree ID="BehaviorTree">
+        <ReactiveSequence>
+            <Fallback>
+                <Inverter>
+                    <Condition ID="IsObstacle" distance="1.0"/>
+                </Inverter>
+                <Sequence>
+                    <Action ID="Back"/>
+                    <Action ID="Turn"/>
+                </Sequence>
+            </Fallback>
+            <Action ID="Forward"/>
+        </ReactiveSequence>
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <Action ID="Back"/>
+        <Action ID="Forward"/>
+        <Condition ID="IsObstacle">
+            <input_port default="1.0" name="distance">Distance to consider obstacle</input_port>
+        </Condition>
+        <Action ID="Turn"/>
+    </TreeNodesModel>
+    <!-- ////////// -->
+    <!-- creo que por cada acción hay que añadir un .hpp en include y un .cpp en src -->
+</root>
+
