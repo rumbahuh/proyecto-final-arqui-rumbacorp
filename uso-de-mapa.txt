@@ -1,0 +1,118 @@
+Paso 1: Usa el Nav2 Lifecycle Manager y el mapa
+Asegúrate de que ya estás ejecutando lo siguiente:
+
+nav2_bringup lanzado (por ejemplo, con bringup_launch.py)
+
+map_server está usando tu .yaml de mapa
+
+El robot tiene un localization node activo (amcl)
+
+nav2_controller y nav2_planner están activos
+
+Si no has lanzado Nav2 aún, usa este comando con tu propio mapa y configuración:
+
+bash
+Copiar
+Editar
+
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=false map:=/path/to/map.yaml
+
+Paso 2: Tu nodo debe usar la acción NavigateToPose
+Nav2 ofrece una acción que te permite pedirle al robot que vaya a un punto:
+
+Acción: nav2_msgs/action/NavigateToPose
+
+Necesitarás:
+rclcpp_action
+
+geometry_msgs
+
+nav2_msgs
+
+EJEMPLO DE CÓDIGO CON NAVIGATETOPOSE
+
+#include <chrono>
+#include <memory>
+
+#include "rclcpp/rclcpp.hpp"
+#include "rclcpp_action/rclcpp_action.hpp"
+#include "geometry_msgs/msg/pose_stamped.hpp"
+#include "nav2_msgs/action/navigate_to_pose.hpp"
+
+class NavigationClient : public rclcpp::Node
+{
+public:
+  using NavigateToPose = nav2_msgs::action::NavigateToPose;
+  using GoalHandleNavigateToPose = rclcpp_action::ClientGoalHandle<NavigateToPose>;
+
+  NavigationClient()
+  : Node("navigation_client")
+  {
+    client_ptr_ = rclcpp_action::create_client<NavigateToPose>(
+      this, "navigate_to_pose");
+
+    this->send_goal();
+  }
+
+private:
+  rclcpp_action::Client<NavigateToPose>::SharedPtr client_ptr_;
+
+  void send_goal()
+  {
+    if (!client_ptr_->wait_for_action_server(10s)) {
+      RCLCPP_ERROR(this->get_logger(), "Nav2 action server no disponible");
+      return;
+    }
+
+    auto goal_msg = NavigateToPose::Goal();
+    goal_msg.pose.header.frame_id = "map";
+    goal_msg.pose.header.stamp = this->now();
+
+    // Coordenadas de destino en el mapa
+    goal_msg.pose.pose.position.x = 2.0;
+    goal_msg.pose.pose.position.y = 1.5;
+    goal_msg.pose.pose.orientation.w = 1.0;
+
+    auto send_goal_options = rclcpp_action::Client<NavigateToPose>::SendGoalOptions();
+    send_goal_options.result_callback = [this](const auto & result) {
+      if (result.code == rclcpp_action::ResultCode::SUCCEEDED) {
+        RCLCPP_INFO(this->get_logger(), "¡Objetivo alcanzado!");
+      } else {
+        RCLCPP_WARN(this->get_logger(), "No se alcanzó el objetivo");
+      }
+    };
+
+    client_ptr_->async_send_goal(goal_msg, send_goal_options);
+  }
+};
+
+int main(int argc, char ** argv)
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<NavigationClient>());
+  rclcpp::shutdown();
+  return 0;
+}
+
+
+en el cmake list:
+
+find_package(nav2_msgs REQUIRED)
+find_package(rclcpp_action REQUIRED)
+
+add_executable(navigation_client src/NavigationClient.cpp)
+ament_target_dependencies(navigation_client
+  rclcpp
+  rclcpp_action
+  geometry_msgs
+  nav2_msgs
+)
+install(TARGETS navigation_client DESTINATION lib/${PROJECT_NAME})
+
+<depend>nav2_msgs</depend>
+<depend>rclcpp_action</depend>
+
+Ideas adicionales
+Puedes integrar esto con tu ControlNode, activando la navegación solo cuando se detecte una persona.
+
+También puedes publicar dinámicamente los destinos basados en posición de una persona detectada con TF.
