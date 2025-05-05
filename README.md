@@ -1,4 +1,4 @@
-# proyecto-final-arqui-rumbacorp [cambiar por nombre del proyecto]
+# pfa_restaurante
 
 # Overview [borrador template]
 [Aquí deberíamos añadir el Computation Graph después de la descripción]
