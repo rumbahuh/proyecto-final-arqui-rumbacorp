@@ -4,15 +4,15 @@
     <BehaviorTree ID="MainTree">
         <Sequence>
             <Action ID="GoToDoor"/>
-            <Action ID="NumPeople" out=""/>
+            <Action ID="CountPeople" out=""/>
         </Sequence>
     </BehaviorTree>
     <!-- ////////// -->
     <TreeNodesModel>
-        <Action ID="GoToDoor"/>
-        <Action ID="NumPeople">
+        <Action ID="CountPeople">
             <output_port name="out"/>
         </Action>
+        <Action ID="GoToDoor"/>
     </TreeNodesModel>
     <!-- ////////// -->
 </root>
