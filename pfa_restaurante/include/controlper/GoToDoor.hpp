@@ -15,22 +15,14 @@ namespace   controlper
 class GoToDoor : public BT::ActionNodeBase
 {
 public:
-  explicit Back(
+  explicit GoToDoor(
     const std::string & xml_tag_name,
     const BT::NodeConfiguration & conf);
 
   void halt();
   BT::NodeStatus tick();
 
-  static BT::PortsList providedPorts()
-  {
-    return BT::PortsList({});
-  }
-
 private:
-  rclcpp::Node::SharedPtr node_;
-  rclcpp::Time start_time_;
-  rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr vel_pub_;
 };
 
 }  // controlper
