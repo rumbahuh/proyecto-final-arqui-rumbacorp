@@ -2,37 +2,47 @@
 #define CONTROLPER__COUNTPEOPLE_HPP_
 
 #include <string>
-
+#include <iostream>
 #include "behaviortree_cpp_v3/behavior_tree.h"
-#include "behaviortree_cpp_v3/bt_factory.h"
-
-#include "geometry_msgs/msg/twist.hpp"
 #include "rclcpp/rclcpp.hpp"
 
-namespace   controlper
+namespace controlper
 {
 
-class CountPeople : public BT::ActionNodeBase
+// Estructura de Mesa
+struct Mesa
 {
-public:
-  explicit Back(
-    const std::string & xml_tag_name,
-    const BT::NodeConfiguration & conf);
-
-  void halt();
-  BT::NodeStatus tick();
-
-  static BT::PortsList providedPorts()
-  {
-    return BT::PortsList({});
-  }
-
-private:
-  rclcpp::Node::SharedPtr node_;
-  rclcpp::Time start_time_;
-  rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr vel_pub_;
+  int tamaño;
+  bool estado; // false: mesa libre, true: mesa ocupada
 };
 
-}  // controlper
+// Sobrecarga de operador << para poder imprimir una mesa
+inline std::ostream& operator<<(std::ostream& os, const Mesa& mesa)
+{
+  os << "Mesa(tamaño=" << mesa.tamaño << ", estado=" << (mesa.estado ? "ocupada" : "libre") << ")";
+  return os;
+}
+
+// Nodo que ejecuta la configuración inicial del BT
+// Primero pregunta cuántas personas hay, luego crea dos mesas BIG y SMALL
+// y las guarda en la blackboard
+class CountPeople : public BT::SyncActionNode
+{
+public:
+  CountPeople(const std::string& name, const BT::NodeConfiguration& config);
+
+  static BT::PortsList providedPorts();  // Solo el número de personas va como puerto
+
+  BT::NodeStatus tick() override;
+
+private:
+  // Función para pedir número de personas
+  bool contarPersonas();
+
+  // Función para crear mesas y guardarlas directamente en la blackboard
+  void crearMesas();
+};
+
+}  // namespace controlper
 
 #endif  // CONTROLPER__COUNTPEOPLE_HPP_

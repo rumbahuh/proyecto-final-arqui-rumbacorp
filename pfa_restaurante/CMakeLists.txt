@@ -5,15 +5,19 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
+# ROS and BT dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(behaviortree_cpp_v3 REQUIRED) # Esto lo he añadido del bumpgo
+find_package(behaviortree_cpp_v3 REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
-find_package(ament_index_cpp REQUIRED) # Esto lo he añadido del bumpgo
+find_package(nav2_msgs REQUIRED)
+find_package(ament_index_cpp REQUIRED)
+
+set(CMAKE_CXX_STANDARD 17)
 
 set(dependencies
   rclcpp
@@ -23,46 +27,48 @@ set(dependencies
   tf2
   tf2_geometry_msgs
   vision_msgs
+  nav2_msgs
   ament_index_cpp
 )
 
 include_directories(include)
 
-add_library(${PROJECT_NAME} SHARED
-  src/controlper/ControlNode.cpp
-  src/controlper/PIDControler.cpp
-  src/controlper/TfPublisher.cpp
+# --- Plugin node libraries ---
+add_library(gotodoor_pfa_node SHARED src/controlper/GoToDoor.cpp)
+add_library(countpeople_pfa_node SHARED src/controlper/CountPeople.cpp)
+
+list(APPEND plugin_libs
+  gotodoor_pfa_node
+  countpeople_pfa_node
 )
 
-ament_target_dependencies(${PROJECT_NAME} ${dependencies})
+foreach(pfa_plugin ${plugin_libs})
+  ament_target_dependencies(${pfa_plugin} ${dependencies})
+  target_compile_definitions(${pfa_plugin} PRIVATE PFA_PLUGIN_EXPORT)
+endforeach()
 
+# --- Main executable (e.g. launching the BT) ---
 add_executable(control_main src/control_main.cpp)
 ament_target_dependencies(control_main ${dependencies})
-target_link_libraries(control_main ${PROJECT_NAME})
 
-add_executable(tf_main src/tf_main.cpp)
-ament_target_dependencies(tf_main ${dependencies})
-target_link_libraries(tf_main ${PROJECT_NAME})
+# Optional: link any libs if needed (skip if not using any shared lib)
+# target_link_libraries(control_main ${plugin_libs})
 
+# --- Install targets ---
 install(TARGETS
-  ${PROJECT_NAME}
+  ${plugin_libs}
   control_main
-  tf_main
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
+# Install BT XMLs and launch files
+install(DIRECTORY behavior_tree_xml DESTINATION share/${PROJECT_NAME})
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
-install(DIRECTORY behavior_tree_xml
-  DESTINATION share/${PROJECT_NAME}
-) # Esto lo he añadido del bumpgo pero no sé si es en lugar del launch
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  set(ament_cmake_copyright_FOUND TRUE)
-  set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
+# --- Export info ---
+ament_export_include_directories(include)
+ament_export_dependencies(${dependencies})
 
 ament_package()
