@@ -33,9 +33,6 @@ int main(int argc, char * argv[])
 	BT::BehaviorTreeFactory factory;
 	BT::SharedLibrary loader;
 
-  BT::RegisterStandardNodes(factory);
-  BT::RegisterStandardNodes(loader);
-
   factory.registerFromPlugin(loader.getOSName("gotodoor_pfa_node"));
   factory.registerFromPlugin(loader.getOSName("countpeople_pfa_node"));
 
