@@ -49,8 +49,8 @@ BT::PortsList GoToDoor::providedPorts()
 BT::NodeStatus GoToDoor::tick()
 {
   // Objetivo fijo
-  double x = 13.0;
-  double y = 13.0;
+  double x = -4.925550830873371;
+  double y = 4.315978747808121;
   double theta = 0.0;
 
   geometry_msgs::msg::PoseStamped goal;
@@ -66,6 +66,8 @@ BT::NodeStatus GoToDoor::tick()
 
   NavigateToPose::Goal nav_goal;
   nav_goal.pose = goal;
+
+  auto start_time = node_->now();  // ← Marca de tiempo inicial
 
   auto send_goal_future = action_client_->async_send_goal(nav_goal);
   if (rclcpp::spin_until_future_complete(node_, send_goal_future) != rclcpp::FutureReturnCode::SUCCESS) {
@@ -86,14 +88,19 @@ BT::NodeStatus GoToDoor::tick()
   }
 
   auto result = result_future.get();
-  if (result.result->navigation_time.sec > 0) {
-    RCLCPP_INFO(node_->get_logger(), "Navigation succeeded");
+  auto end_time = node_->now();  // ← Marca de tiempo final
+
+  rclcpp::Duration duration = end_time - start_time;
+
+  if (result.code == rclcpp_action::ResultCode::SUCCEEDED) {
+    RCLCPP_INFO(node_->get_logger(), "Navigation succeeded in %.2f seconds", duration.seconds());
     return BT::NodeStatus::SUCCESS;
   } else {
     RCLCPP_ERROR(node_->get_logger(), "Navigation failed");
     return BT::NodeStatus::FAILURE;
   }
 }
+
 
 void GoToDoor::halt()
 {
