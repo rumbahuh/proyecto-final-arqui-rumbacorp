@@ -26,22 +26,22 @@ BT::PortsList CountPeople::providedPorts()
 BT::NodeStatus CountPeople::tick()
 {
   int count = 0;
-  std::cout << "How many persons? ";
+  std::cout << "How many persons? \n";
   std::cin >> count;
 
   if (std::cin.fail() || count <= 0) {
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cerr << "Invalid number of persons." << std::endl;
+    std::cerr << "Invalid number of persons.\n" << std::endl;
     return BT::NodeStatus::FAILURE;
   }
 
   if (!setOutput("out", count)) {
-    std::cerr << "Failed to set output [out] on blackboard." << std::endl;
+    std::cerr << "Failed to set output [out] on blackboard.\n" << std::endl;
     return BT::NodeStatus::FAILURE;
   }
 
-  std::cout << "Registered " << count << " person(s)." << std::endl;
+  std::cout << "Registered " << count << " person(s).\n" << std::endl;
   return BT::NodeStatus::SUCCESS;
 }
 
