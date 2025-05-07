@@ -1,18 +1,19 @@
 <?xml version="1.0"?>
 <root main_tree_to_execute="MainTree">
-    <!-- ////////// -->
+
     <BehaviorTree ID="MainTree">
         <Sequence>
             <Action ID="GoToDoor"/>
-            <Action ID="CountPeople" out=""/>
+            <Action ID="CountPeople" out="{person_count}"/>
+            <LogMessage message="People counted: {person_count}"/>
         </Sequence>
     </BehaviorTree>
-    <!-- ////////// -->
+
     <TreeNodesModel>
         <Action ID="CountPeople">
             <output_port name="out"/>
         </Action>
         <Action ID="GoToDoor"/>
     </TreeNodesModel>
-    <!-- ////////// -->
+
 </root>
