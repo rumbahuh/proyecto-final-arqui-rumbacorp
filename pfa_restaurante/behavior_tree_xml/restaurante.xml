@@ -11,7 +11,7 @@
 
     <TreeNodesModel>
         <Action ID="CountPeople">
-            <output_port name="out"/>
+            <output_port name="personas"/>
         </Action>
         <Action ID="GoToDoor"/>
     </TreeNodesModel>
