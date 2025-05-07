@@ -1,0 +1,68 @@
+COORDENADAS
+
+Coordenadas desde la puerta
+Posición
+x: -4.925550830873371
+y: -4.315978747808121
+z: 0.0
+Orientación
+x: 0.0
+y: 0.0
+z: -0.96469100904492
+w: 0.2633839454433892
+
+Coordenadas desde el origen
+Posición
+x: -5.9161759153994415
+y: -0.8398470377999765
+z: 0.0
+Orientación
+x: 0.0
+y: 0.0
+z: -0.7055753924306777
+w: 0.7086348605567575
+
+Coordenadas mesa grande
+Posición
+x: -2.6915394668397883
+y: -2.809132875211364
+z: 0.0
+Orientación
+x: 0.0
+y: 0.0
+z: 0.6969251446605108
+w: 0.7171438786881793
+
+Coordenadas mesa pequeña 1
+Posición 
+x: -1.5830647959391106
+y: 0.5238755782175551 
+z: 0.0
+Orientación 
+x: 0.0 
+y: 0.0 
+z: 0.9614045197039975
+w: 0.275138782240392
+
+Coordenadas mesa pequeña 2
+Posición 
+x: -0.6384891330024288
+y: 0.559046560368699 
+z: 0.0
+Orientación 
+x: 0.0 
+y: 0.0 
+z: 0.26751146805157333
+w: 0.9635546764252104
+
+Coordenadas mesa pequeña 3
+Posición 
+x: -0.49837595256644057
+y: -3.049161757190125 
+z: 0.0
+Orientación 
+x: 0.0 
+y: 0.0 
+z: 0.4641298362245469
+w: 0.8857671788490332
+
