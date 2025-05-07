@@ -35,6 +35,8 @@ set(dependencies
 add_library(gotodoor_pfa_node SHARED src/controlper/GoToDoor.cpp)
 add_library(countpeople_pfa_node SHARED src/controlper/CountPeople.cpp)
 
+include_directories(include ${CMAKE_SOURCE_DIR}/src)
+
 list(APPEND plugin_libs
   gotodoor_pfa_node
   countpeople_pfa_node
