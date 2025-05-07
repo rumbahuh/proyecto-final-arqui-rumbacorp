@@ -4,7 +4,6 @@
 
 #include "controlper/GoToDoor.hpp"
 
-#include "behaviortree_cpp_v3/behavior_tree.h"
 
 #include "geometry_msgs/msg/twist.hpp"
 #include "rclcpp/rclcpp.hpp"
@@ -24,6 +23,7 @@ BT_REGISTER_NODES(factory)
 }
 */
 // GoToDoor.cpp
+#include "behaviortree_cpp_v3/behavior_tree.h"
 
 #include "controlper/GoToDoor.hpp"
 
