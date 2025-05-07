@@ -1,0 +1,40 @@
+[0.047s] Invoking command in '/home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/build/pfa_restaurante': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rumbahuh/asr_ws/install/yolo_ros:/home/rumbahuh/asr_ws/install/rclpy_cascade_lifecycle:/home/rumbahuh/asr_ws/install/br2_fsm_bumpgo_py:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/pfa_restaurante -DCMAKE_INSTALL_PREFIX=/home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante
+[0.248s] -- The C compiler identification is GNU 13.3.0
+[0.414s] -- The CXX compiler identification is GNU 13.3.0
+[0.467s] -- Detecting C compiler ABI info
+[0.780s] -- Detecting C compiler ABI info - done
+[0.806s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.807s] -- Detecting C compile features
+[0.808s] -- Detecting C compile features - done
+[0.847s] -- Detecting CXX compiler ABI info
+[1.204s] -- Detecting CXX compiler ABI info - done
+[1.228s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.228s] -- Detecting CXX compile features
+[1.229s] -- Detecting CXX compile features - done
+[1.267s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.944s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.619s] -- Found rclcpp: 28.1.9 (/opt/ros/jazzy/share/rclcpp/cmake)
+[2.996s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[3.116s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[3.263s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.401s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.898s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[3.941s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[4.397s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[4.468s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[4.543s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.982s] -- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[5.129s] -- Found tf2_ros: 0.36.10 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[5.834s] -- Found tf2_geometry_msgs: 0.36.10 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)
+[5.998s] -- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[6.001s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[6.002s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[6.038s] -- Found vision_msgs: 4.1.1 (/opt/ros/jazzy/share/vision_msgs/cmake)
+[6.135s] [31mCMake Error at /opt/ros/jazzy/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake:42 (message):
+[6.135s]   ament_target_dependencies() the first argument must be a valid target name
+[6.135s] Call Stack (most recent call first):
+[6.136s]   CMakeLists.txt:57 (ament_target_dependencies)
+[6.136s] 
+[6.136s] [0m
+[6.136s] -- Configuring incomplete, errors occurred!
+[6.158s] Invoked command in '/home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/build/pfa_restaurante' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rumbahuh/asr_ws/install/yolo_ros:/home/rumbahuh/asr_ws/install/rclpy_cascade_lifecycle:/home/rumbahuh/asr_ws/install/br2_fsm_bumpgo_py:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ /usr/bin/cmake /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/pfa_restaurante -DCMAKE_INSTALL_PREFIX=/home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante
