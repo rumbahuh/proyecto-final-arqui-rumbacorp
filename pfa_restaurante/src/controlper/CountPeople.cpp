@@ -82,3 +82,90 @@ BT_REGISTER_NODES(factory)
 {
   factory.registerNodeType<controlper::CountPeople>("CountPeople");
 }
+
+/*
+#include "controlper/CountPeople.hpp"
+#include "hri/dialog/speak.hpp"
+#include "hri/dialog/listen.hpp"
+#include <iostream>
+#include <limits>
+#include <sstream>
+
+namespace controlper
+{
+
+using namespace dialog;
+
+CountPeople::CountPeople(const std::string& name, const BT::NodeConfiguration& config)
+    : BT::SyncActionNode(name, config) {}
+
+BT::PortsList CountPeople::providedPorts()
+{
+  return { BT::OutputPort<int>("personas") };
+}
+
+BT::NodeStatus CountPeople::tick()
+{
+  if (!contarPersonas()) {
+    return BT::NodeStatus::FAILURE;
+  }
+
+  crearMesas();
+  return BT::NodeStatus::SUCCESS;
+}
+
+bool CountPeople::contarPersonas()
+{
+  // Crear instancia del nodo Speak
+  Speak speak_node("speak_personas", "say", config());
+  speak_node.setInput("speech_text", std::string("¿Mesa para cuántos?"));
+  speak_node.tick();  // Ejecutar el habla
+
+  // Crear instancia del nodo Listen
+  Listen listen_node("listen_personas", "whisper/listen", config());
+  listen_node.tick();  // Ejecutar escucha
+
+  // Obtener el texto escuchado
+  std::string escuchado;
+  if (!listen_node.getOutput("listened_text", escuchado)) {
+    std::cerr << "Error al obtener el texto escuchado.\n";
+    return false;
+  }
+
+  std::cout << "Texto escuchado: " << escuchado << std::endl;
+
+  // Convertir a entero
+  int personas = 0;
+  std::stringstream ss(escuchado);
+  ss >> personas;
+
+  if (ss.fail() || personas <= 0) {
+    std::cerr << "Número inválido escuchado.\n";
+    return false;
+  }
+
+  if (!setOutput("personas", personas)) {
+    std::cerr << "No se pudo guardar el número de personas en la blackboard.\n";
+    return false;
+  }
+
+  std::cout << "Buscando mesa para " << personas << std::endl;
+  return true;
+}
+
+void CountPeople::crearMesas()
+{
+  Mesa big{6, false};
+  Mesa small{4, false};
+
+  auto bb = config().blackboard;
+  bb->set("mesa_big", big);
+  bb->set("mesa_small", small);
+
+  std::cout << "Mesas creadas y guardadas en la blackboard:\n";
+  std::cout << " - mesa_big: " << big << "\n";
+  std::cout << " - mesa_small: " << small << "\n";
+}
+
+}  // namespace controlper
+*/

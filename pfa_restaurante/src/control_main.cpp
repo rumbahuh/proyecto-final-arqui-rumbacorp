@@ -56,3 +56,57 @@ int main(int argc, char * argv[])
   rclcpp::shutdown();
   return 0;
 }
+
+/*
+#include <string>
+#include <memory>
+
+#include "behaviortree_cpp_v3/behavior_tree.h"
+#include "behaviortree_cpp_v3/bt_factory.h"
+#include "behaviortree_cpp_v3/utils/shared_library.h"
+
+#include "ament_index_cpp/get_package_share_directory.hpp"
+
+#include "rclcpp/rclcpp.hpp"
+#include "rclcpp_cascade_lifecycle/cascade_lifecycle_node.hpp"
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+
+  // Usamos CascadeLifecycleNode para Speak y Listen
+  auto node = std::make_shared<rclcpp_cascade_lifecycle::CascadeLifecycleNode>("restaurant_node");
+
+  BT::BehaviorTreeFactory factory;
+  BT::SharedLibrary loader;
+
+  // Plugins existentes
+  factory.registerFromPlugin(loader.getOSName("gotodoor_pfa_node"));
+  factory.registerFromPlugin(loader.getOSName("countpeople_pfa_node"));
+
+  // Nuevos plugins de diálogo
+  factory.registerFromPlugin(loader.getOSName("dialog_speak_node"));
+  factory.registerFromPlugin(loader.getOSName("dialog_listen_node"));
+
+  // Cargar el árbol XML
+  std::string pkgpath = ament_index_cpp::get_package_share_directory("pfa_restaurante");
+  std::string xml_file = pkgpath + "/behavior_tree_xml/restaurante.xml";
+
+  auto blackboard = BT::Blackboard::create();
+  blackboard->set("node", node);
+
+  BT::Tree tree = factory.createTreeFromFile(xml_file, blackboard);
+
+  rclcpp::Rate rate(10);
+  bool finish = false;
+
+  while (!finish && rclcpp::ok()) {
+    finish = tree.tickRoot() != BT::NodeStatus::RUNNING;
+    rclcpp::spin_some(node);
+    rate.sleep();
+  }
+
+  rclcpp::shutdown();
+  return 0;
+}
+*/

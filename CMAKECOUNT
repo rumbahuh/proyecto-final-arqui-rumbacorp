@@ -8,6 +8,7 @@ endif()
 # Dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_cascade_lifecycle REQUIRED)
 find_package(behaviortree_cpp_v3 REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
@@ -16,11 +17,15 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(ament_index_cpp REQUIRED)
+find_package(audio_common_msgs REQUIRED)
+find_package(whisper_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 
 set(dependencies
   rclcpp
+  rclcpp_cascade_lifecycle
   behaviortree_cpp_v3
   geometry_msgs
   tf2_ros
@@ -29,11 +34,15 @@ set(dependencies
   vision_msgs
   nav2_msgs
   ament_index_cpp
+  audio_common_msgs
+  whisper_msgs
+  std_msgs
 )
 
 # --- Plugin node libraries ---
 add_library(gotodoor_pfa_node SHARED src/controlper/GoToDoor.cpp)
 add_library(countpeople_pfa_node SHARED src/controlper/CountPeople.cpp)
+# Puedes añadir aquí otros nodos si es necesario
 
 include_directories(include ${CMAKE_SOURCE_DIR}/src)
 
@@ -50,7 +59,7 @@ endforeach()
 # --- Main executable ---
 add_executable(control_main src/control_main.cpp)
 ament_target_dependencies(control_main ${dependencies})
-target_link_libraries(control_main ${ZMQ_LIBRARIES})  # <-- LINK ZMQ
+target_link_libraries(control_main ${plugin_libs})
 
 # --- Install targets ---
 install(TARGETS
@@ -70,3 +79,4 @@ ament_export_include_directories(include)
 ament_export_dependencies(${dependencies})
 
 ament_package()
+
