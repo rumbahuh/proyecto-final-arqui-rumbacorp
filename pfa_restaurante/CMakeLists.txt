@@ -44,7 +44,7 @@ list(APPEND plugin_libs
 
 foreach(pfa_plugin ${plugin_libs})
   ament_target_dependencies(${pfa_plugin} ${dependencies})
-  target_compile_definitions(${pfa_plugin} PRIVATE PFA_PLUGIN_EXPORT)
+  target_compile_definitions(${pfa_plugin} PRIVATE BT_PLUGIN_EXPORT)
 endforeach()
 
 # --- Main executable ---
