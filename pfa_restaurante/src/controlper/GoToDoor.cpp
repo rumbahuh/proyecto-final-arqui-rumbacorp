@@ -108,4 +108,10 @@ void GoToDoor::halt()
   // Opcional: podrías cancelar la navegación aquí
 }
 
-}  // namespace controlper
+}
+
+#include "behaviortree_cpp_v3/bt_factory.h"
+BT_REGISTER_NODES(factory)
+{
+  factory.registerNodeType<controlper::GoToDoor>("GoToDoor");
+}
