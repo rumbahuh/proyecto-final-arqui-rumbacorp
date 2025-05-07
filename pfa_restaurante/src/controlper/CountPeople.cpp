@@ -8,65 +8,82 @@
 namespace controlper
 {
 
-// Estructura de mesa
+// Estructura de Mesa
 struct Mesa
 {
   int tamaño;
-  bool estado;
+  bool estado; //false: mesa libre, true: mesa ocupada
 };
 
-// Para permitir que se imprima (debug/log)
+//Sobrecarga de operador << para poder imprimir una mesa.
 inline std::ostream& operator<<(std::ostream& os, const Mesa& mesa)
 {
   os << "Mesa(tamaño=" << mesa.tamaño << ", estado=" << (mesa.estado ? "ocupada" : "libre") << ")";
   return os;
 }
 
-// Nodo que pide el número de personas y crea mesas en la blackboard
-class SetupMesasYPersonas : public BT::SyncActionNode
+// Nodo que ejecuta la configuración inicial del BT
+//primero pregunta cuántas personas hay 
+//luego crea dos mesas BIG y SMALL y las guarda en la blackboard
+class SetupInicial : public BT::SyncActionNode
 {
 public:
-  SetupMesasYPersonas(const std::string& name, const BT::NodeConfiguration& config)
+  SetupInicial(const std::string& name, const BT::NodeConfiguration& config)
     : BT::SyncActionNode(name, config) {}
 
-  static BT::PortsList providedPorts()
+  static BT::PortsList providedPorts()//se declara el puerto de salida de personas
   {
-    // Solo se declara como output el número de personas, para usar setOutput
-    return { BT::OutputPort<int>("personas_out") };
+    return { BT::OutputPort<int>("personas") };  // Solo el número de personas va como puerto
   }
 
   BT::NodeStatus tick() override
   {
+    if (!contarPersonas()) {
+      return BT::NodeStatus::FAILURE;
+    }
+
+    crearMesas();
+
+    return BT::NodeStatus::SUCCESS;
+  }
+
+private:
+  //Función para pedir número de personas
+  bool contarPersonas()
+  {
     int personas = 0;
-    std::cout << "¿Cuántas personas hay? ";
+    std::cout << "¿Mesa para cuántos? ";
     std::cin >> personas;
 
     if (std::cin.fail() || personas <= 0) {
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-      std::cerr << "Número inválido de personas.\n";
-      return BT::NodeStatus::FAILURE;
+      std::cerr << "Número inválido.\n";
+      return false;
     }
 
-    // ✅ Publicar el número de personas mediante setOutput
-    if (!setOutput("personas_out", personas)) {
-      std::cerr << "No se pudo publicar el número de personas.\n";
-      return BT::NodeStatus::FAILURE;
+    if (!setOutput("personas", personas)) {
+      std::cerr << "No se pudo guardar el número de personas en la blackboard.\n";
+      return false;
     }
 
-    std::cout << "Número de personas registrado: " << personas << std::endl;
+    std::cout << "Buscando mesa para " << personas << std::endl;
+    return true;
+  }
 
-    // ✅ Crear mesas y guardarlas directamente en la blackboard
-    Mesa big{6, false};   // tamaño 6, libre
-    Mesa small{4, false}; // tamaño 4, libre
+  //Función para crear mesas y guardarlas directamente en la blackboard
+  void crearMesas()
+  {
+    Mesa big{6, false};   // BIG: tamaño 6
+    Mesa small{4, false}; // SMALL: tamaño 4
 
-    // Blackboard directa (sin pasar por los puertos)
     auto bb = config().blackboard;
     bb->set("mesa_big", big);
     bb->set("mesa_small", small);
 
-    std::cout << "Mesas BIG y SMALL guardadas en la blackboard." << std::endl;
-    return BT::NodeStatus::SUCCESS;
+    std::cout << "Mesas creadas y guardadas en la blackboard:\n";
+    std::cout << " - mesa_big: " << big << "\n";
+    std::cout << " - mesa_small: " << small << "\n";
   }
 };
 
@@ -76,5 +93,5 @@ public:
 
 BT_REGISTER_NODES(factory)
 {
-  factory.registerNodeType<controlper::SetupMesasYPersonas>("SetupMesasYPersonas");
+  factory.registerNodeType<controlper::SetupInicial>("SetupInicial");
 }
