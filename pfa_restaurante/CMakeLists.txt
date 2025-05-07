@@ -17,8 +17,8 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(ament_index_cpp REQUIRED)
-find_package(audio_common_msgs REQUIRED)
-find_package(whisper_msgs REQUIRED)
+#find_package(audio_common_msgs REQUIRED)
+#find_package(whisper_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(libzmq3-dev)
 
@@ -35,8 +35,8 @@ set(dependencies
   vision_msgs
   nav2_msgs
   ament_index_cpp
-  audio_common_msgs
-  whisper_msgs
+  #audio_common_msgs
+  #whisper_msgs
   std_msgs
   libzmq3-dev
 )
