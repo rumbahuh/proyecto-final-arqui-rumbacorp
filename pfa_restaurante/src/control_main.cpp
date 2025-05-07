@@ -30,6 +30,9 @@ int main(int argc, char * argv[])
 
   auto node = rclcpp::Node::make_shared("restaurant_node");
 
+	BT::BehaviorTreeFactory factory;
+	BT::SharedLibrary loader;
+
   BT::RegisterStandardNodes(factory);
   BT::RegisterStandardNodes(loader);
 
