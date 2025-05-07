@@ -5,7 +5,6 @@
         <Sequence>
             <Action ID="GoToDoor"/>
             <Action ID="CountPeople" person_count="{person_count}"/>
-            <LogMessage message='std::cout << "People counted: " << person_count << std::endl;'/>
         </Sequence>
     </BehaviorTree>
 
