@@ -1,4 +1,3 @@
-
 <?xml version="1.0"?>
 <root main_tree_to_execute="MainTree">
 
@@ -6,7 +5,7 @@
         <Sequence>
             <Action ID="GoToDoor"/>
             <Action ID="CountPeople" person_count="{person_count}"/>
-            <Script code='std::cout << "People counted: " << person_count << std::endl;'/>
+            <LogMessage message='std::cout << "People counted: " << person_count << std::endl;'/>
         </Sequence>
     </BehaviorTree>
 
