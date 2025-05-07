@@ -37,7 +37,7 @@ GoToDoor::GoToDoor(const std::string& name, const BT::NodeConfiguration& config)
   action_client_ = rclcpp_action::create_client<NavigateToPose>(node_, "navigate_to_pose");
 
   while (!action_client_->wait_for_action_server(std::chrono::seconds(1))) {
-    RCLCPP_INFO(node_->get_logger(), "Waiting for nav2 action server...\n");
+    RCLCPP_INFO(node_->get_logger(), "Waiting for nav2 action server...");
   }
 }
 
@@ -69,35 +69,35 @@ BT::NodeStatus GoToDoor::tick()
 
   auto send_goal_future = action_client_->async_send_goal(nav_goal);
   if (rclcpp::spin_until_future_complete(node_, send_goal_future) != rclcpp::FutureReturnCode::SUCCESS) {
-    RCLCPP_ERROR(node_->get_logger(), "Failed to send goal\n");
+    RCLCPP_ERROR(node_->get_logger(), "Failed to send goal");
     return BT::NodeStatus::FAILURE;
   }
 
   auto goal_handle = send_goal_future.get();
   if (!goal_handle) {
-    RCLCPP_ERROR(node_->get_logger(), "Goal was rejected by server\n");
+    RCLCPP_ERROR(node_->get_logger(), "Goal was rejected by server");
     return BT::NodeStatus::FAILURE;
   }
 
   auto result_future = action_client_->async_get_result(goal_handle);
   if (rclcpp::spin_until_future_complete(node_, result_future) != rclcpp::FutureReturnCode::SUCCESS) {
-    RCLCPP_ERROR(node_->get_logger(), "Failed while waiting for result\n");
+    RCLCPP_ERROR(node_->get_logger(), "Failed while waiting for result");
     return BT::NodeStatus::FAILURE;
   }
 
   auto result = result_future.get();
-  if (result->result->navigation_time.sec > 0) {
-    RCLCPP_INFO(node_->get_logger(), "Navigation succeeded\n");
+  if (result.result->navigation_time.sec > 0) {
+    RCLCPP_INFO(node_->get_logger(), "Navigation succeeded");
     return BT::NodeStatus::SUCCESS;
   } else {
-    RCLCPP_ERROR(node_->get_logger(), "Navigation failed\n");
+    RCLCPP_ERROR(node_->get_logger(), "Navigation failed");
     return BT::NodeStatus::FAILURE;
   }
 }
 
 void GoToDoor::halt()
 {
-  RCLCPP_WARN(node_->get_logger(), "GoToDoor was halted\n");
+  RCLCPP_WARN(node_->get_logger(), "GoToDoor was halted");
   // Opcional: podrías cancelar la navegación aquí
 }
 
