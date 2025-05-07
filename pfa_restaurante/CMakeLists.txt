@@ -5,7 +5,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# ROS and BT dependencies
+# Dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(behaviortree_cpp_v3 REQUIRED)
@@ -31,8 +31,6 @@ set(dependencies
   ament_index_cpp
 )
 
-include_directories(include)
-
 # --- Plugin node libraries ---
 add_library(gotodoor_pfa_node SHARED src/controlper/GoToDoor.cpp)
 add_library(countpeople_pfa_node SHARED src/controlper/CountPeople.cpp)
@@ -47,12 +45,10 @@ foreach(pfa_plugin ${plugin_libs})
   target_compile_definitions(${pfa_plugin} PRIVATE PFA_PLUGIN_EXPORT)
 endforeach()
 
-# --- Main executable (e.g. launching the BT) ---
+# --- Main executable ---
 add_executable(control_main src/control_main.cpp)
 ament_target_dependencies(control_main ${dependencies})
-
-# Optional: link any libs if needed (skip if not using any shared lib)
-# target_link_libraries(control_main ${plugin_libs})
+target_link_libraries(control_main ${ZMQ_LIBRARIES})  # <-- LINK ZMQ
 
 # --- Install targets ---
 install(TARGETS
