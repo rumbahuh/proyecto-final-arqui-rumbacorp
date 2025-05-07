@@ -14,7 +14,12 @@ namespace controlper
 struct Mesa
 {
   int tamaño;
-  bool estado; // false: mesa libre, true: mesa ocupada
+  bool llena; 
+  
+  friend std::ostream& operator<<(std::ostream& os, const Mesa& mesa) {
+    os << "{capacidad: " << mesa.tamaño << ", llena: " << (mesa.llena ? "sí" : "no") << "}";
+    return os;
+  }
 };
 
 // Sobrecarga de operador << para poder imprimir una mesa

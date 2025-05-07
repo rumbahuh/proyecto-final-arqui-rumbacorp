@@ -6,18 +6,6 @@
 namespace controlper
 {
 
-struct Mesa
-{
-  int tamaño;
-  bool estado; // true = ocupada, false = libre
-};
-
-inline std::ostream& operator<<(std::ostream& os, const Mesa& mesa)
-{
-  os << "Mesa(tamaño=" << mesa.tamaño << ", estado=" << (mesa.estado ? "ocupada" : "libre") << ")";
-  return os;
-}
-
 class CheckTable : public BT::SyncActionNode
 {
 public:
@@ -50,23 +38,25 @@ public:
       return BT::NodeStatus::FAILURE;
     } 
     else if (personas >= 4) {
-      if (big.estado) {
+      if (big.llena) {
         std::cout << "No hay mesas disponibles (mesa BIG ya ocupada)." << std::endl;
         return BT::NodeStatus::FAILURE;
       }
       std::cout << "Asignando a mesa BIG..." << std::endl;
-      big.estado = true;
+      big.llena = true;
       bb->set("mesa_big", big);
+      bb->set("mesa_destino", std::string("BIG"));
       std::cout << "Estado actualizado: " << big << std::endl;
     } 
     else {
-      if (small.estado) {
+      if (small.llena) {
         std::cout << "No hay mesas disponibles (mesa SMALL ya ocupada)." << std::endl;
         return BT::NodeStatus::FAILURE;
       }
       std::cout << "Asignando a mesa SMALL..." << std::endl;
-      small.estado = true;
+      small.llena = true;
       bb->set("mesa_small", small);
+      bb->set("mesa_destino", std::string("SMALL"));
       std::cout << "Estado actualizado: " << small << std::endl;
     }
 

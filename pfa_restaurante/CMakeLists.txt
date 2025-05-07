@@ -8,6 +8,7 @@ endif()
 # Dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_cascade_lifecycle REQUIRED)
 find_package(behaviortree_cpp_v3 REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
@@ -16,11 +17,16 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(ament_index_cpp REQUIRED)
+find_package(audio_common_msgs REQUIRED)
+find_package(whisper_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(libzmq3-dev)
 
 set(CMAKE_CXX_STANDARD 17)
 
 set(dependencies
   rclcpp
+  rclcpp_cascade_lifecycle
   behaviortree_cpp_v3
   geometry_msgs
   tf2_ros
@@ -29,17 +35,25 @@ set(dependencies
   vision_msgs
   nav2_msgs
   ament_index_cpp
+  audio_common_msgs
+  whisper_msgs
+  std_msgs
+  libzmq3-dev
 )
 
 # --- Plugin node libraries ---
 add_library(gotodoor_pfa_node SHARED src/controlper/GoToDoor.cpp)
 add_library(countpeople_pfa_node SHARED src/controlper/CountPeople.cpp)
+add_library(countpeople_pfa_node SHARED src/controlper/CheckTable.cpp)
+add_library(countpeople_pfa_node SHARED src/controlper/GoToTable.cpp)
 
 include_directories(include ${CMAKE_SOURCE_DIR}/src)
 
 list(APPEND plugin_libs
   gotodoor_pfa_node
   countpeople_pfa_node
+  checktable_pfa_node
+  gototable_pfa_node
 )
 
 foreach(pfa_plugin ${plugin_libs})
