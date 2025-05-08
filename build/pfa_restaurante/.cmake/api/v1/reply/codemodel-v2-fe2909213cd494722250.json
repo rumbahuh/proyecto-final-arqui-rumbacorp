@@ -1,0 +1,115 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-18b1ee6c5671fb2629cf.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "pfa_restaurante",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "checktable_pfa_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-checktable_pfa_node-abb0a7c150b85226f921.json",
+					"name" : "checktable_pfa_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "control_main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-control_main-8bfa886712b0501c4b35.json",
+					"name" : "control_main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "countpeople_pfa_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-countpeople_pfa_node-3029298cf544e519af0f.json",
+					"name" : "countpeople_pfa_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gotodoor_pfa_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gotodoor_pfa_node-efeb5f3bb4b0d307186f.json",
+					"name" : "gotodoor_pfa_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gototable_pfa_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gototable_pfa_node-b1cba38105d96c301e80.json",
+					"name" : "gototable_pfa_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pfa_restaurante_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pfa_restaurante_uninstall-d87c8b18ba101d8d56ce.json",
+					"name" : "pfa_restaurante_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-70228d114cdeeccf09f4.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/build/pfa_restaurante",
+		"source" : "/home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/pfa_restaurante"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
