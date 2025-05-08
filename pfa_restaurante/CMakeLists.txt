@@ -49,6 +49,8 @@ add_library(gotodoor_pfa_node SHARED src/controlper/GoToDoor.cpp)
 add_library(countpeople_pfa_node SHARED src/controlper/CountPeople.cpp)
 add_library(checktable_pfa_node SHARED src/controlper/CheckTable.cpp)
 add_library(gototable_pfa_node SHARED src/controlper/GoToTable.cpp)
+add_library(speak_pfa_node SHARED src/controlper/Speak.cpp)
+add_library(listen_pfa_node SHARED src/controlper/Listen.cpp)
 
 include_directories(include ${CMAKE_SOURCE_DIR}/src)
 
@@ -57,6 +59,8 @@ list(APPEND plugin_libs
   countpeople_pfa_node
   checktable_pfa_node
   gototable_pfa_node
+  speak_pfa_node
+  listen_pfa_node
 )
 
 foreach(pfa_plugin ${plugin_libs})

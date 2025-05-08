@@ -35,7 +35,8 @@ int main(int argc, char * argv[])
   factory.registerFromPlugin(loader.getOSName("countpeople_pfa_node"));
   factory.registerFromPlugin(loader.getOSName("checktable_pfa_node"));
   factory.registerFromPlugin(loader.getOSName("gototable_pfa_node"));
-
+  factory.registerFromPlugin(loader.getOSName("speak_pfa_node"));
+	factory.registerFromPlugin(loader.getOSName("listen_pfa_node"));
 
   std::string pkgpath = ament_index_cpp::get_package_share_directory("pfa_restaurante");
   std::string xml_file = pkgpath + "/behavior_tree_xml/restaurante.xml";
