@@ -20,7 +20,11 @@ find_package(ament_index_cpp REQUIRED)
 #find_package(audio_common_msgs REQUIRED)
 #find_package(whisper_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(libzmq3-dev)
+# -- find_package(libzmq3-dev) -- Hay que añadirla manualmente
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(ZMQ REQUIRED libzmq)
+include_directories(${ZMQ_INCLUDE_DIRS})
+link_directories(${ZMQ_LIBRARY_DIRS})
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -44,8 +48,8 @@ set(dependencies
 # --- Plugin node libraries ---
 add_library(gotodoor_pfa_node SHARED src/controlper/GoToDoor.cpp)
 add_library(countpeople_pfa_node SHARED src/controlper/CountPeople.cpp)
-add_library(countpeople_pfa_node SHARED src/controlper/CheckTable.cpp)
-add_library(countpeople_pfa_node SHARED src/controlper/GoToTable.cpp)
+add_library(checktable_pfa_node SHARED src/controlper/CheckTable.cpp)
+add_library(gototable_pfa_node SHARED src/controlper/GoToTable.cpp)
 
 include_directories(include ${CMAKE_SOURCE_DIR}/src)
 
