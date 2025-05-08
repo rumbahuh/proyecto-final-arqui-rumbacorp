@@ -28,7 +28,7 @@ Nav2
 
 
 ### Poses
-Inicial
+Inicial\n
 Recibidor
 Mesa1: 4
 Mesa2: 4
