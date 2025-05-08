@@ -32,13 +32,9 @@ Inicial
 
 Recibidor
 
-Mesa1: 4
+mesa BIG: 6
 
-Mesa2: 4
-
-Mesa3: 6
-
-Mesa4: 4
+mesa SMALL: 4
 
 ## Lógica
 Si la mesa de 4 personas está libre y llega un grupo de 6, el kobuki ha de 
