@@ -42,10 +42,12 @@ detectar que el grupo es demasiado grande y que no hay sitio.
 
 ## Uso
 **Disclaimer: Implementamos una copia de HRI en el repositorio, por lo que el paquete usado y modificado es el nuestro. Dará error con los duplicados.**
+
 **Kobuki**
 ```
 ros2 launch kobuki kobuki.launch.py lidar_a2:=true
 ```
+
 **Navegation**.
 ```
 ros2 launch kobuki navigation.launch.py
@@ -55,10 +57,12 @@ Gracias a este comando también se abre el rviz2 con el que se puede visualizar 
 ros2 run tf2_ros tf2_echo map base_link
 ```
 El proceso que seguimos fue señalizar con el rivz2 las coordenadas que queríamos guardar en el blackboard, haciendo este ros2 run para poder visualizar las coordenadas exactas de los lugares a los que queremos mandar el robot.
+
 **Nodo**
 ```
 ros2 run pfa_restaurante control_main
 ```
+
 
 # Apuntes
 Pese a que principalmente se quería implementar el uso del yolo para el recuento
@@ -67,11 +71,13 @@ y el uso de hri, no ha sido posible, por eso, se marca la mesa como ocupada
 independientemente de cuantos sitios libres queden en la mesa, con el fin de 
 no mezclar grupos en la misma mesa y la simplificación del código e implementación.
 
+
 # IDEAS A IMPLEMENTAR
 Si llegan clientes nuevos y no hay una mesa disponible, va a la mesa más óptima
 y les pide que se vayan, la marca vacía (asumimos que los clientes han hecho caso)
 y vuelve a donde se encuentran los nuevos clientes para llevarles a la nueva 
 mesa vacía.
+
 
 **FECHA:** 9/5/2024 
 **AUTORES:**
