@@ -3,42 +3,36 @@
     <BehaviorTree ID="MainTree">
       <Repeat num_cycles="-1">
         <Sequence>
-            <Action ID="GoToDoor"/>
-            <!-- Saludo inicial
-      			<Action ID="Speak" text="Bienvenido. ¿Cuántas personas son?" /> -->
-            <Action ID="CountPeople" personas="{personas}"/>
-            <!-- Escucha la respuesta y guarda número 
-      			<Action ID="Listen" answer="{personas}" /> -->
-      			<Action ID="CheckTable" personas="{personas}" />
-      			<!-- Confirmación de la mesa asignada
-      			<Action ID="Speak" text="Acompáñeme a la mesa {destino}." /> -->
-      			<Action ID="GoToTable" />
+            <!-- Secuencia de preguntar y escuchar el número de personas -->
+            <Sequence>
+                <Action ID="Speak" speech_text="Bienvenido. ¿Cuántas personas son?"/>
+                <Action ID="Listen" listened_text="{listened_text}"/>
+            </Sequence>
+
+            <!-- Acción para contar personas con la información que se obtiene del 'Listen' -->
+            <Action ID="CountPeople" personas="{listened_text}"/>
         </Sequence>
       </Repeat>
     </BehaviorTree>
 
     <TreeNodesModel>
-    <!--
-    		<Action ID="Speak">
-      		<input_port name="text"/>
-    		</Action>
+        <!-- Nodo para Speak que pregunta el número de personas -->
+        <Action ID="Speak">
+            <input_port name="speech_text"/>
+        </Action>
 
-    		<Action ID="Listen">
-      		<output_port name="answer"/>
-    		</Action>
-    		-->
-    
+        <!-- Nodo para Listen que recoge el número de personas -->
+        <Action ID="Listen">
+            <output_port name="listened_text"/>
+        </Action>
+
+        <!-- Nodo para CountPeople que usa el número de personas recogido -->
         <Action ID="CountPeople">
-            <output_port name="personas"/>
+            <input_port name="personas"/>
         </Action>
-        
+
+        <!-- Nodo adicional que puedes añadir si deseas la acción de ir a la puerta -->
         <Action ID="GoToDoor"/>
-        <Action ID="GoToTable">
-        </Action>
-        
-        <Action ID="CheckTable">
-      		<input_port name="personas"/>
-    		</Action>
     </TreeNodesModel>
 
 </root>

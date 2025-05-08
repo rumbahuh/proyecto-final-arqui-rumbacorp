@@ -29,7 +29,7 @@ def generate_launch_description():
     # print('params_file: ', params_file)
     with open(params_file, 'r') as f:
         params = yaml.safe_load(f)['hri_node']['ros__parameters']
-    # print(params)
+    # print(params)z
 
     ld = LaunchDescription()
 
