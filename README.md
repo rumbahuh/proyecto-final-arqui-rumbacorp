@@ -79,7 +79,11 @@ y vuelve a donde se encuentran los nuevos clientes para llevarles a la nueva
 mesa vacía.
 
 
+## Video de implementación básica
+
+
 **FECHA:** 9/5/2024 
+
 **AUTORES:**
   MarioC05 (Mario Casero)
   rumbahuh (Rebeca Castilla)
