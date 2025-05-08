@@ -42,7 +42,6 @@ set(dependencies
   #audio_common_msgs
   #whisper_msgs
   std_msgs
-  libzmq3-dev
 )
 
 # --- Plugin node libraries ---
