@@ -88,17 +88,3 @@ BT_REGISTER_NODES(factory)
 {
   factory.registerNodeType<controlper::CountPeople>("CountPeople");
 }
-
-/
-{
-  Mesa big{6, false};
-  Mesa small{4, false};
-
-  auto bb = config().blackboard;
-  bb->set("mesa_big", big);
-  bb->set("mesa_small", small);
-
-  std::cout << "Mesas creadas y guardadas en la blackboard:\n";
-  std::cout << " - mesa_big: " << big << "\n";
-  std::cout << " - mesa_small: " << small << "\n";
-}
