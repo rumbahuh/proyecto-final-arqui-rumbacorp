@@ -17,8 +17,6 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(ament_index_cpp REQUIRED)
-#find_package(audio_common_msgs REQUIRED)
-#find_package(whisper_ros REQUIRED)
 find_package(std_msgs REQUIRED)
 #find_package(hri_bt_nodes REQUIRED)
 # -- find_package(libzmq3-dev) -- Hay que añadirla manualmente
