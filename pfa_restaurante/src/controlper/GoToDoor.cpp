@@ -27,6 +27,8 @@ BT::PortsList GoToDoor::providedPorts()
 
 BT::NodeStatus GoToDoor::tick()
 {
+  std::cout << "GoToDoor ejecutandose" << std::endl;
+
   // Objetivo fijo
   double x = -5.0;
   double y = -4.5;

@@ -19,6 +19,8 @@ public:
 
   BT::NodeStatus tick() override
   {
+    std::cout << "CheckTable ejecutandose" << std::endl;
+
     int personas = 0;
     if (!getInput("personas", personas)) {
       std::cerr << "No se pudo obtener el número de personas desde la blackboard." << std::endl;

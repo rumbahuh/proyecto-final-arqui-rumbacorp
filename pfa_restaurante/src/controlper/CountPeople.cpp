@@ -22,6 +22,8 @@ BT::PortsList CountPeople::providedPorts() // se declara el puerto de salida de 
 BT::NodeStatus CountPeople::tick()
 {
   // Primero contamos las personas
+  std::cout << "CountPeople ejecutandose" << std::endl;
+
   if (!contarPersonas()) {
     return BT::NodeStatus::FAILURE; // Si falla, devuelve FAILURE
   }
