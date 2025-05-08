@@ -92,7 +92,6 @@ BT_REGISTER_NODES(factory)
   factory.registerNodeType<controlper::CountPeople>("CountPeople");
 }
 
-/
 {
   Mesa big{6, false};
   Mesa small{4, false};
