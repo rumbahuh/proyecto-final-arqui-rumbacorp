@@ -23,7 +23,7 @@ public:
   BT::NodeStatus tick() override;
 
 private:
-  // Función para pedir número de personas
+
   bool contarPersonas();
 
   // Función para crear mesas y guardarlas directamente en la blackboard
@@ -33,27 +33,3 @@ private:
 }  // namespace controlper
 
 #endif  // CONTROLPER__COUNTPEOPLE_HPP_
-/*
-#pragma once
-
-#include "behaviortree_cpp_v3/action_node.h"
-
-namespace controlper
-{
-
-class CountPeople : public BT::SyncActionNode
-{
-public:
-  CountPeople(const std::string& name, const BT::NodeConfiguration& config);
-
-  static BT::PortsList providedPorts();
-
-  BT::NodeStatus tick() override;
-
-private:
-  bool contarPersonas();
-  void crearMesas();
-};
-
-}  // namespace controlper
-*/
