@@ -38,8 +38,6 @@ set(dependencies
   vision_msgs
   nav2_msgs
   ament_index_cpp
-  #audio_common_msgs
-  #whisper_ros
   std_msgs
   #hri_bt_nodes
 )
