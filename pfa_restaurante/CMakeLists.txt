@@ -18,7 +18,6 @@ find_package(vision_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(ament_index_cpp REQUIRED)
 find_package(std_msgs REQUIRED)
-#find_package(hri_bt_nodes REQUIRED)
 # -- find_package(libzmq3-dev) -- Hay que añadirla manualmente
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(ZMQ REQUIRED libzmq)
@@ -39,7 +38,6 @@ set(dependencies
   nav2_msgs
   ament_index_cpp
   std_msgs
-  #hri_bt_nodes
 )
 
 # --- Plugin node libraries ---
