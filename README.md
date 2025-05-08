@@ -37,7 +37,6 @@ dice que no hay mesas disponibles y espera a un grupo más grande.
 
 
 # Uso
-**Disclaimer: Implementamos una copia de HRI en el repositorio, por lo que el paquete usado y modificado es el nuestro. Dará error con los duplicados.**
 
 **Kobuki**
 ```
