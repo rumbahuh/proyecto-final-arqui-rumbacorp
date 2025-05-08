@@ -87,5 +87,5 @@ mesa vacía.
 **AUTORES:**
   MarioC05 (Mario Casero)
   rumbahuh (Rebeca Castilla)
-  inarem13 (Henar Contreras)
+  inarem13/inarem-jpg (Henar Contreras)
   LoVeMi3 (Lorea Vera)
