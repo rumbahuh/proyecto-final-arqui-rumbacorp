@@ -17,15 +17,9 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(ament_index_cpp REQUIRED)
-#find_package(audio_common_msgs REQUIRED)
-find_package(whisper_ros REQUIRED)
+find_package(audio_common_msgs REQUIRED)
+find_package(whisper_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(hri_bt_nodes REQUIRED)
-# -- find_package(libzmq3-dev) -- Hay que añadirla manualmente
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(ZMQ REQUIRED libzmq)
-include_directories(${ZMQ_INCLUDE_DIRS})
-link_directories(${ZMQ_LIBRARY_DIRS})
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -40,25 +34,21 @@ set(dependencies
   vision_msgs
   nav2_msgs
   ament_index_cpp
-  #audio_common_msgs
-  whisper_ros
+  audio_common_msgs
+  whisper_msgs
   std_msgs
-  hri_bt_nodes
 )
 
 # --- Plugin node libraries ---
 add_library(gotodoor_pfa_node SHARED src/controlper/GoToDoor.cpp)
 add_library(countpeople_pfa_node SHARED src/controlper/CountPeople.cpp)
-add_library(checktable_pfa_node SHARED src/controlper/CheckTable.cpp)
-add_library(gototable_pfa_node SHARED src/controlper/GoToTable.cpp)
+# Puedes añadir aquí otros nodos si es necesario
 
 include_directories(include ${CMAKE_SOURCE_DIR}/src)
 
 list(APPEND plugin_libs
   gotodoor_pfa_node
   countpeople_pfa_node
-  checktable_pfa_node
-  gototable_pfa_node
 )
 
 foreach(pfa_plugin ${plugin_libs})
@@ -69,7 +59,7 @@ endforeach()
 # --- Main executable ---
 add_executable(control_main src/control_main.cpp)
 ament_target_dependencies(control_main ${dependencies})
-target_link_libraries(control_main ${ZMQ_LIBRARIES})  # <-- LINK ZMQ
+target_link_libraries(control_main ${plugin_libs})
 
 # --- Install targets ---
 install(TARGETS
@@ -89,3 +79,4 @@ ament_export_include_directories(include)
 ament_export_dependencies(${dependencies})
 
 ament_package()
+
