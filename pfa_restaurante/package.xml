@@ -16,7 +16,7 @@
   <depend>tf2</depend>
   <depend>tf2_ros</depend>
   <depend>nav2_msgs</depend>
-  <!-- <depend>libzmq3-dev</depend> <!-- añadido del bumpgo -->
+  <!-- <depend>libzmq3-dev</depend> añadido del bumpgo --> 
   <depend>ament_index_cpp</depend> <!-- añadido del bumpgo -->
   <depend>rclcpp_cascade_lifecycle</depend>
   <!--<depend>audio_common_msgs</depend>
