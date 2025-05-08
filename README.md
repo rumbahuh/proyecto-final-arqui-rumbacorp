@@ -21,8 +21,11 @@ mesas disponibles.
 
 ### Documentación
 Behavior Trees
+
 Nav2
+
 ![HRI](https://github.com/rodperex/bt_nodes)
+
 
 ### Poses
 Inicial
@@ -38,17 +41,17 @@ detectar que el grupo es demasiado grande y que no hay sitio.
 
 ### Uso
 **Kobuki**
-´´´
+```
 [AÑADIR COMANDOS]
-´´´
+```
 **Navegation**
-´´´
+```
 ros2 launch kobuki navigation.launch.py
-´´´
+```
 **Nodo**
-´´´
+```
 ros2 run pfa_restaurante control_main
-´´´
+```
 ## APUNTES
 Pese a que principalmente se quería implementar el uso del yolo para el recuento
 de personas y la detección de la cantidad de gente en las mesas, por falta de tiempo
