@@ -10,25 +10,6 @@
 namespace controlper
 {
 
-// Estructura de Mesa
-struct Mesa
-{
-  int tamaño;
-  bool llena; 
-  
-  friend std::ostream& operator<<(std::ostream& os, const Mesa& mesa) {
-    os << "{capacidad: " << mesa.tamaño << ", llena: " << (mesa.llena ? "sí" : "no") << "}";
-    return os;
-  }
-};
-
-// Sobrecarga de operador << para poder imprimir una mesa
-inline std::ostream& operator<<(std::ostream& os, const Mesa& mesa)
-{
-  os << "Mesa(tamaño=" << mesa.tamaño << ", estado=" << (mesa.estado ? "ocupada" : "libre") << ")";
-  return os;
-}
-
 // Nodo que ejecuta la configuración inicial del BT
 // Primero pregunta cuántas personas hay, luego crea dos mesas BIG y SMALL
 // y las guarda en la blackboard

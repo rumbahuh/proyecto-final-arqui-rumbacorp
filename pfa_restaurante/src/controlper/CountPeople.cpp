@@ -1,6 +1,7 @@
 #include "controlper/CountPeople.hpp"
 #include <iostream>
 #include <limits>
+#include "controlper/mesa.hpp"
 
 namespace controlper
 {
@@ -36,7 +37,7 @@ BT::NodeStatus CountPeople::tick()
 bool CountPeople::contarPersonas()
 {
   int personas = 0;
-  std::cout << "¿Mesa para cuántos? ";
+  std::cout << "¿Mesa para cuántos?\n";
   std::cin >> personas;
 
   // Validamos que el número ingresado sea válido
@@ -70,7 +71,7 @@ void CountPeople::crearMesas()
   bb->set("mesa_small", small);
 
   // Imprimimos el estado de las mesas
-  std::cout << "Mesas creadas y guardadas en la blackboard:\n";
+  std::cout << "Mesas creadas y guardadas en la blackboard:";
   std::cout << " - mesa_big: " << big << "\n";
   std::cout << " - mesa_small: " << small << "\n";
 }

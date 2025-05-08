@@ -8,25 +8,6 @@
 namespace controlper
 {
 
-// Estructura Mesa compatible con la definición del sistema
-struct Mesa
-{
-  int tamaño;
-  bool llena; 
-  
-  friend std::ostream& operator<<(std::ostream& os, const Mesa& mesa) {
-    os << "{capacidad: " << mesa.tamaño << ", llena: " << (mesa.llena ? "sí" : "no") << "}";
-    return os;
-  }
-};
-
-// Para imprimir mesas en consola
-inline std::ostream& operator<<(std::ostream& os, const Mesa& mesa)
-{
-  os << "Mesa(tamaño=" << mesa.tamaño << ", estado=" << (mesa.estado ? "ocupada" : "libre") << ")";
-  return os;
-}
-
 // Nodo de acción que asigna una mesa en base al número de personas
 class CheckTable : public BT::SyncActionNode
 {

@@ -41,20 +41,10 @@ private:
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include "nav2_msgs/action/navigate_to_pose.hpp"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
+#include "controlper/mesa.hpp"
 
 namespace controlper
 {
-
-struct Mesa
-{
-  int tamaño;
-  bool llena;
-  
-  friend std::ostream& operator<<(std::ostream& os, const Mesa& mesa) {
-    os << "{capacidad: " << mesa.tamaño << ", llena: " << (mesa.llena ? "sí" : "no") << "}";
-    return os;
-  }
-};
 
 class GoToTable : public BT::AsyncActionNode
 {
