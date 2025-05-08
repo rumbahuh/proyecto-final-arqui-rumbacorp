@@ -35,12 +35,20 @@ int main(int argc, char * argv[])
 
   factory.registerFromPlugin(loader.getOSName("gotodoor_pfa_node"));
   factory.registerFromPlugin(loader.getOSName("countpeople_pfa_node"));
+  factory.registerFromPlugin(loader.getOSName("checktable_pfa_node"));
+  factory.registerFromPlugin(loader.getOSName("gototable_pfa_node"));
+
 
   std::string pkgpath = ament_index_cpp::get_package_share_directory("pfa_restaurante");
   std::string xml_file = pkgpath + "/behavior_tree_xml/restaurante.xml";
 
   auto blackboard = BT::Blackboard::create();
   blackboard->set("node", node);
+  // Inicializamos mesas vacías
+	controlper::Mesa mesa_big{6, false};
+	controlper::Mesa mesa_small{2, false};
+	blackboard->set("mesa_big", mesa_big);
+	blackboard->set("mesa_small", mesa_small);
   BT::Tree tree = factory.createTreeFromFile(xml_file, blackboard);
 
   rclcpp::Rate rate(10);

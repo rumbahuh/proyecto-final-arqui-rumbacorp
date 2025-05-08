@@ -3,15 +3,40 @@
     <BehaviorTree ID="MainTree">
         <Sequence>
             <Action ID="GoToDoor"/>
+            <!-- Saludo inicial
+      			<Action ID="Speak" text="Bienvenido. ¿Cuántas personas son?" /> -->
             <Action ID="CountPeople" personas="{personas}"/>
+            <!-- Escucha la respuesta y guarda número 
+      			<Action ID="Listen" answer="{personas}" /> -->
+      			<Action ID="CheckTable" personas="{personas}" />
+      			<!-- Confirmación de la mesa asignada
+      			<Action ID="Speak" text="Acompáñeme a la mesa {mesa_destino}." /> -->
+      			<Action ID="GoToTable" destino="{mesa_destino}" />
         </Sequence>
     </BehaviorTree>
 
     <TreeNodesModel>
+    <!--
+    		<Action ID="Speak">
+      		<input_port name="text"/>
+    		</Action>
+
+    		<Action ID="Listen">
+      		<output_port name="answer"/>
+    		</Action>
+    		-->
+    
         <Action ID="CountPeople">
             <output_port name="personas"/>
         </Action>
+        
         <Action ID="GoToDoor"/>
+        <Action ID="GoToTable">
+        </Action>
+        
+        <Action ID="CheckTable">
+      		<input_port name="personas"/>
+    		</Action>
     </TreeNodesModel>
 
 </root>
