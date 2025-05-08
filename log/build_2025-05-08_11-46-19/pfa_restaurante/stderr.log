@@ -1,9 +1,0 @@
-In file included from [01m[K/home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/pfa_restaurante/src/controlper/Listen.cpp:1[m[K:
-[01m[K/home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/pfa_restaurante/include/controlper/Listen.hpp:5:10:[m[K [01;31m[Kfatal error: [m[Kwhisper_msgs/msg/transcription.hpp: No such file or directory
-    5 | #include [01;31m[K"whisper_msgs/msg/transcription.hpp"[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-gmake[2]: *** [CMakeFiles/listen_pfa_node.dir/build.make:76: CMakeFiles/listen_pfa_node.dir/src/controlper/Listen.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:279: CMakeFiles/listen_pfa_node.dir/all] Error 2
-gmake[1]: *** Waiting for unfinished jobs....
-gmake: *** [Makefile:146: all] Error 2
