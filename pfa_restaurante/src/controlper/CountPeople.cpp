@@ -119,16 +119,6 @@ bool CountPeople::contarPersonas()
 {
   // Crear instancia del nodo Speak
   Speak speak_node("speak_personas", "say", config());
-  speak_node.setInput("speech_text", std::string("¿Mesa para cuántos?"));
-  speak_node.tick();  // Ejecutar el habla
-
-  // Crear instancia del nodo Listen
-  Listen listen_node("listen_personas", "whisper/listen", config());
-  listen_node.tick();  // Ejecutar escucha
-
-  // Obtener el texto escuchado
-  std::string escuchado;
-  if (!listen_node.getOutput("listened_text", escuchado)) {
     std::cerr << "Error al obtener el texto escuchado.\n";
     return false;
   }

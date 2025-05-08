@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <root main_tree_to_execute="MainTree">
     <BehaviorTree ID="MainTree">
+      <Repeat num_cycles="-1">
         <Sequence>
             <Action ID="GoToDoor"/>
             <!-- Saludo inicial
@@ -13,6 +14,7 @@
       			<Action ID="Speak" text="Acompáñeme a la mesa {destino}." /> -->
       			<Action ID="GoToTable" />
         </Sequence>
+      </Repeat>
     </BehaviorTree>
 
     <TreeNodesModel>

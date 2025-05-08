@@ -73,13 +73,13 @@ BT::NodeStatus GoToTable::tick()
   double theta = 0.0;
 
 	if (destino == "BIG") {
-    x = -2.6915;
-    y = -2.8091;
+    x = -2.5;
+    y = -2.5;
     theta = 0.0;
     RCLCPP_INFO(node_->get_logger(), "On path to BIG desk.\n");
   } else if (destino == "SMALL") {
-    x = -0.4983;
-    y = -3.0491;
+    x = 0.0;
+    y = -2.5;
     theta = 0.0;
     RCLCPP_INFO(node_->get_logger(), "On path to SMALL desk.\n");
   } else {

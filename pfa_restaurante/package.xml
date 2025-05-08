@@ -19,10 +19,10 @@
   <!-- <depend>libzmq3-dev</depend> añadido del bumpgo --> 
   <depend>ament_index_cpp</depend> <!-- añadido del bumpgo -->
   <depend>rclcpp_cascade_lifecycle</depend>
-  <!--<depend>audio_common_msgs</depend>-->
-  <depend>whisper_msgs</depend>
+  <!--<depend>audio_common_msgs</depend>
+  <depend>whisper_msgs</depend>-->
   <depend>std_msgs</depend>
-  <depend>hri_bt_nodes</depend>
+  <!--<depend>hri_bt_nodes</depend>-->
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
