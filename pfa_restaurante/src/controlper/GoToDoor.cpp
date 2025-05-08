@@ -28,8 +28,8 @@ BT::PortsList GoToDoor::providedPorts()
 BT::NodeStatus GoToDoor::tick()
 {
   // Objetivo fijo
-  double x = -4.925550830873371;
-  double y = 4.315978747808121;
+  double x = -5.479227443090446;
+  double y = -4.144102269394439;
   double theta = 0.0;
 
   geometry_msgs::msg::PoseStamped goal;
