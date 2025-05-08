@@ -28,6 +28,9 @@ Nav2
 
 
 ## Poses
+
+![Image](https://github.com/user-attachments/assets/83baf1ba-ca17-4155-97d0-60e503555a83)
+
 Inicial
 
 Recibidor
