@@ -1,6 +1,4 @@
-# pfa_restaurante
-Poner fecha y autores (nuestros nombres y cual es el @ de cada uno,pq algunos
-estamos usando la cuenta priv)
+# PFA_RESTAURANTE
 
 ## Overview [borrador template]
 [Aquí deberíamos añadir el Computation Graph después de la descripción]
