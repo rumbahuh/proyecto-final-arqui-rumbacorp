@@ -4,6 +4,7 @@
 
 ## Computation Graph
 [Aquí deberíamos añadir el Computation Graph después de la descripción]
+![Computation Graph](img/rqt_graph-simulator.png)
 
 ## BT
 ![Behavior Tree - pfa_restaurante](https://github.com/user-attachments/assets/de32e57e-c2a3-4e81-a0c0-c7a06d4b0fbc)
