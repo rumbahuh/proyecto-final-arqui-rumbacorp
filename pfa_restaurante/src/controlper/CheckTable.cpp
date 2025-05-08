@@ -45,7 +45,7 @@ public:
       std::cout << "Asignando a mesa BIG..." << std::endl;
       big.llena = true;
       bb->set("mesa_big", big);
-      bb->set("mesa_destino", std::string("BIG"));
+      bb->set("destino", std::string("BIG"));
       std::cout << "Estado actualizado: " << big << std::endl;
     } 
     else {
@@ -56,7 +56,7 @@ public:
       std::cout << "Asignando a mesa SMALL..." << std::endl;
       small.llena = true;
       bb->set("mesa_small", small);
-      bb->set("mesa_destino", std::string("SMALL"));
+      bb->set("destino", std::string("SMALL"));
       std::cout << "Estado actualizado: " << small << std::endl;
     }
 

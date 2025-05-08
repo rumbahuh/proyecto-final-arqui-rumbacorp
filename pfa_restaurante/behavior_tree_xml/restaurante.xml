@@ -10,8 +10,8 @@
       			<Action ID="Listen" answer="{personas}" /> -->
       			<Action ID="CheckTable" personas="{personas}" />
       			<!-- Confirmación de la mesa asignada
-      			<Action ID="Speak" text="Acompáñeme a la mesa {mesa_destino}." /> -->
-      			<Action ID="GoToTable" destino="{mesa_destino}" />
+      			<Action ID="Speak" text="Acompáñeme a la mesa {destino}." /> -->
+      			<Action ID="GoToTable" />
         </Sequence>
     </BehaviorTree>
 

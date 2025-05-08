@@ -61,10 +61,10 @@ BT::NodeStatus GoToTable::tick()
 	*/
   
   auto bb = config().blackboard;
-  std::string mesa_destino;
+  std::string destino;
 
-  if (!bb->get("mesa_destino", mesa_destino)) {
-    RCLCPP_ERROR(node_->get_logger(), "Could not find 'mesa_destino' on the blackboard.\n");
+  if (!bb->get("destino", destino)) {
+    RCLCPP_ERROR(node_->get_logger(), "Could not find 'destino' on the blackboard.\n");
     return BT::NodeStatus::FAILURE;
   }
   
@@ -72,18 +72,18 @@ BT::NodeStatus GoToTable::tick()
   double y = 0.0;
   double theta = 0.0;
 
-	if (mesa_destino == "BIG") {
+	if (destino == "BIG") {
     x = -2.6915;
     y = -2.8091;
     theta = 0.0;
     RCLCPP_INFO(node_->get_logger(), "On path to BIG desk.\n");
-  } else if (mesa_destino == "SMALL") {
+  } else if (destino == "SMALL") {
     x = -0.4983;
     y = -3.0491;
     theta = 0.0;
     RCLCPP_INFO(node_->get_logger(), "On path to SMALL desk.\n");
   } else {
-    RCLCPP_ERROR(node_->get_logger(), "Unwanted value on variable mesa_destino: '%s'\n", mesa_destino.c_str());
+    RCLCPP_ERROR(node_->get_logger(), "Unwanted value on variable destino: '%s'\n", destino.c_str());
     return BT::NodeStatus::FAILURE;
   }
 
@@ -188,10 +188,10 @@ BT::PortsList GoToTable::providedPorts()
 BT::NodeStatus GoToTable::tick()
 {
   auto bb = config().blackboard;
-  std::string mesa_destino;
+  std::string destino;
 
-  if (!bb->get("mesa_destino", mesa_destino)) {
-    RCLCPP_ERROR(node_->get_logger(), "Could not find 'mesa_destino' on the blackboard.\n");
+  if (!bb->get("destino", destino)) {
+    RCLCPP_ERROR(node_->get_logger(), "Could not find 'destino' on the blackboard.\n");
     return BT::NodeStatus::FAILURE;
   }
 
@@ -199,18 +199,18 @@ BT::NodeStatus GoToTable::tick()
   double y = 0.0;
   double theta = 0.0;
 
-  if (mesa_destino == "BIG") {
+  if (destino == "BIG") {
     x = -2.6915;
     y = -2.8091;
     theta = 0.0;
     RCLCPP_INFO(node_->get_logger(), "On path to BIG desk.\n");
-  } else if (mesa_destino == "SMALL") {
+  } else if (destino == "SMALL") {
     x = -0.4983;
     y = -3.0491;
     theta = 0.0;
     RCLCPP_INFO(node_->get_logger(), "On path to SMALL desk.\n");
   } else {
-    RCLCPP_ERROR(node_->get_logger(), "Unwanted value on variable mesa_destino: '%s'\n", mesa_destino.c_str());
+    RCLCPP_ERROR(node_->get_logger(), "Unwanted value on variable destino: '%s'\n", destino.c_str());
     return BT::NodeStatus::FAILURE;
   }
 
