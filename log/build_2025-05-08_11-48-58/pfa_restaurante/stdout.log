@@ -1,0 +1,7 @@
+[  7%] [32mBuilding CXX object CMakeFiles/listen_pfa_node.dir/src/controlper/Listen.cpp.o[0m
+[ 21%] Built target checktable_pfa_node
+[ 35%] Built target speak_pfa_node
+[ 50%] Built target countpeople_pfa_node
+[ 64%] Built target control_main
+[ 78%] Built target gototable_pfa_node
+[ 92%] Built target gotodoor_pfa_node

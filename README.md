@@ -1,15 +1,11 @@
-# pfa_restaurante
-Poner fecha y autores (nuestros nombres y cual es el @ de cada uno,pq algunos
-estamos usando la cuenta priv)
+# PFA_RESTAURANTE
 
 ## Overview [borrador template]
 [Aquí deberíamos añadir el Computation Graph después de la descripción]
 ### BT
 ![Behavior Tree - pfa_restaurante](https://github.com/user-attachments/assets/de32e57e-c2a3-4e81-a0c0-c7a06d4b0fbc)
-
-subimos el Behaviour tree tmb?
 ## IDEAS A IMPLEMENTAR
-si llegan clientes nuevos y no hay una mesa disponible, va a la mesa más óptima
+Si llegan clientes nuevos y no hay una mesa disponible, va a la mesa más óptima
 y les pide que se vayan, la marca vacía (asumimos que los clientes han hecho caso)
 y vuelve a donde se encuentran los nuevos clientes para llevarles a la nueva 
 mesa vacía.
@@ -28,8 +24,7 @@ mesas disponibles.
 Si la mesa de 4 personas está libre y llega un grupo de 6, el kobuki ha de 
 detectar que el grupo es demasiado grande y que no hay sitio 
 
-Se ha implementado el uso de behaviour trees y hri PONER MÁS AQUÍ, 
-explicar en profundidad
+Se ha implementado el uso de behaviour trees y ![hri](https://github.com/rodperex/bt_nodes)
 
 ## APUNTES
 Pese a que principalmente se quería implementar el uso del yolo para el recuento
