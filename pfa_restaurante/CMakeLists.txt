@@ -80,9 +80,9 @@ install(TARGETS
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
-# Install BT XMLs and launch files
+# Install BT XMLs and launch files (borrados)
 install(DIRECTORY behavior_tree_xml DESTINATION share/${PROJECT_NAME})
-install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
+#install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 
 # --- Export info ---
 ament_export_include_directories(include)
