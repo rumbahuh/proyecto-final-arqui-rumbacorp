@@ -24,13 +24,13 @@ BT::PortsList GoToTable::providedPorts()
 BT::NodeStatus GoToTable::tick()
 {
   std::cout << "GoToTable ejecutandose" << std::endl;
-  // Dos objetivos, mesa de seis persona o mesa de cuatro
-  /* coordenadas mesa de 6>n>4 :
+  // Dos objetivos, mesa de seis personas o mesa de cuatro
+  /* coordenadas mesa BIG (6>n>4) :
   	x: -2.6915394668397883
 		y: -2.809132875211364
 		z: 0.0
   
-  coordenadas mesa pequeña (la mesa pequeña 3) 4>n :
+  coordenadas mesa SMALL (4>n) :
   x: -0.49837595256644057
 	y: -3.049161757190125 
 	z: 0.0
