@@ -5,6 +5,12 @@
 
 namespace controlper
 {
+  // Usa la voz del festival en español (latino)
+  void hablarFestival(const std::string& texto)
+  {
+    std::string comando = "echo \"(voice_el_diphone)(SayText \\\"" + texto + "\\\")\" | festival --pipe";
+    system(comando.c_str());
+  }
 
 // Nodo que ejecuta la configuración inicial del BT
 // primero pregunta cuántas personas hay 
@@ -39,6 +45,7 @@ BT::NodeStatus CountPeople::tick()
 bool CountPeople::contarPersonas()
 {
   int personas = 0;
+  hablarFestival("Por favor, introduzca para cuántos será la mesa");
   std::cout << "¿Mesa para cuántos?\n";
   std::cin >> personas;
 
@@ -46,6 +53,7 @@ bool CountPeople::contarPersonas()
   if (std::cin.fail() || personas <= 0) {
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    hablarFestival("Número inválido");
     std::cerr << "Número inválido.\n";
     return false; // Si es inválido, devolvemos false
   }
@@ -56,6 +64,7 @@ bool CountPeople::contarPersonas()
     return false; // Si no se pudo guardar, devolvemos false
   }
 
+  hablarFestival("Buscando su mesa, por favor espere");
   std::cout << "Buscando mesa para " << personas << std::endl;
   return true; // Si todo es válido, devolvemos true
 }

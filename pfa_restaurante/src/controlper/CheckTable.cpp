@@ -4,7 +4,13 @@
 #include "behaviortree_cpp_v3/behavior_tree.h"
 
 namespace controlper
+
 {
+  void hablarFestival(const std::string& texto)
+  {
+    std::string comando = "echo \"(voice_el_diphone)(SayText \\\"" + texto + "\\\")\" | festival --pipe";
+    system(comando.c_str());
+  }
 
 class CheckTable : public BT::SyncActionNode
 {
@@ -36,11 +42,13 @@ public:
     }
 
     if (personas > 6) {
+        hablarFestival("Ahora mismo no se encuentra una mesa disponible, lo sentimos");
       std::cout << "Mesa no disponible para " << personas << " personas." << std::endl;
       return BT::NodeStatus::FAILURE;
     } 
     else if (personas >= 4) {
       if (big.llena) {
+        hablarFestival("Ahora mismo no se encuentra una mesa disponible, lo sentimos");
         std::cout << "No hay mesas disponibles (mesa BIG ya ocupada)." << std::endl;
         return BT::NodeStatus::FAILURE;
       }
@@ -52,6 +60,7 @@ public:
     } 
     else {
       if (small.llena) {
+        hablarFestival("Ahora mismo no se encuentra una mesa disponible, lo sentimos");
         std::cout << "No hay mesas disponibles (mesa SMALL ya ocupada)." << std::endl;
         return BT::NodeStatus::FAILURE;
       }
