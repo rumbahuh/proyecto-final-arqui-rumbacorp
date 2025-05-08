@@ -9,7 +9,7 @@ estamos usando la cuenta priv)
 
 subimos el Behaviour tree tmb?
 ## IDEAS A IMPLEMENTAR
-si llegan clientes nuevos y no hay una mesa disponible, va a la mesa más óptima
+Si llegan clientes nuevos y no hay una mesa disponible, va a la mesa más óptima
 y les pide que se vayan, la marca vacía (asumimos que los clientes han hecho caso)
 y vuelve a donde se encuentran los nuevos clientes para llevarles a la nueva 
 mesa vacía.
