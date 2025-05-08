@@ -77,7 +77,7 @@ BT::NodeStatus GoToTable::tick()
   NavigateToPose::Goal nav_goal;
   nav_goal.pose = goal;
 
-  auto start_time = node_->now();  // ← Marca de tiempo inicial
+  auto start_time = node_->now();  // Marca de tiempo inicial
 
   auto send_goal_future = action_client_->async_send_goal(nav_goal);
   if (rclcpp::spin_until_future_complete(node_, send_goal_future) != rclcpp::FutureReturnCode::SUCCESS) {
@@ -98,7 +98,7 @@ BT::NodeStatus GoToTable::tick()
   }
 
   auto result = result_future.get();
-  auto end_time = node_->now();  // ← Marca de tiempo final
+  auto end_time = node_->now();  // Marca de tiempo final
 
   rclcpp::Duration duration = end_time - start_time;
 
@@ -115,7 +115,7 @@ BT::NodeStatus GoToTable::tick()
 void GoToTable::halt()
 {
   RCLCPP_WARN(node_->get_logger(), "GoToTable was halted\n");
-  // Opcional: podrías cancelar la navegación aquí
+  // Opcional: se podría cancelar la navegación aquí
 }
 
 }

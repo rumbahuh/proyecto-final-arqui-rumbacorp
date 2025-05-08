@@ -1,17 +1,3 @@
-// Copyright 2021 Intelligent Robotics Lab
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 #include <string>
 #include <memory>
 
@@ -35,8 +21,6 @@ int main(int argc, char * argv[])
   factory.registerFromPlugin(loader.getOSName("countpeople_pfa_node"));
   factory.registerFromPlugin(loader.getOSName("checktable_pfa_node"));
   factory.registerFromPlugin(loader.getOSName("gototable_pfa_node"));
-  //factory.registerFromPlugin(loader.getOSName("speak_pfa_node"));
-	//factory.registerFromPlugin(loader.getOSName("listen_pfa_node"));
 
   std::string pkgpath = ament_index_cpp::get_package_share_directory("pfa_restaurante");
   std::string xml_file = pkgpath + "/behavior_tree_xml/restaurante.xml";
@@ -63,57 +47,3 @@ int main(int argc, char * argv[])
   rclcpp::shutdown();
   return 0;
 }
-
-/*
-#include <string>
-#include <memory>
-
-#include "behaviortree_cpp_v3/behavior_tree.h"
-#include "behaviortree_cpp_v3/bt_factory.h"
-#include "behaviortree_cpp_v3/utils/shared_library.h"
-
-#include "ament_index_cpp/get_package_share_directory.hpp"
-
-#include "rclcpp/rclcpp.hpp"
-#include "rclcpp_cascade_lifecycle/cascade_lifecycle_node.hpp"
-
-int main(int argc, char * argv[])
-{
-  rclcpp::init(argc, argv);
-
-  // Usamos CascadeLifecycleNode para Speak y Listen
-  auto node = std::make_shared<rclcpp_cascade_lifecycle::CascadeLifecycleNode>("restaurant_node");
-
-  BT::BehaviorTreeFactory factory;
-  BT::SharedLibrary loader;
-
-  // Plugins existentes
-  factory.registerFromPlugin(loader.getOSName("gotodoor_pfa_node"));
-  factory.registerFromPlugin(loader.getOSName("countpeople_pfa_node"));
-
-  // Nuevos plugins de diálogo
-  factory.registerFromPlugin(loader.getOSName("dialog_speak_node"));
-  factory.registerFromPlugin(loader.getOSName("dialog_listen_node"));
-
-  // Cargar el árbol XML
-  std::string pkgpath = ament_index_cpp::get_package_share_directory("pfa_restaurante");
-  std::string xml_file = pkgpath + "/behavior_tree_xml/restaurante.xml";
-
-  auto blackboard = BT::Blackboard::create();
-  blackboard->set("node", node);
-
-  BT::Tree tree = factory.createTreeFromFile(xml_file, blackboard);
-
-  rclcpp::Rate rate(10);
-  bool finish = false;
-
-  while (!finish && rclcpp::ok()) {
-    finish = tree.tickRoot() != BT::NodeStatus::RUNNING;
-    rclcpp::spin_some(node);
-    rate.sleep();
-  }
-
-  rclcpp::shutdown();
-  return 0;
-}
-*/
