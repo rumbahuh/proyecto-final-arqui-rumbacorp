@@ -1,0 +1,1 @@
+/home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/build/pfa_restaurante/ament_cmake_environment_hooks/local_setup.sh

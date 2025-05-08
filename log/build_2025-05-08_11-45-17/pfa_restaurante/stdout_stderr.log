@@ -1,0 +1,41 @@
+[ 40%] [32mBuilding CXX object CMakeFiles/countpeople_pfa_node.dir/src/controlper/CountPeople.cpp.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/control_main.dir/src/control_main.cpp.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/gotodoor_pfa_node.dir/src/controlper/GoToDoor.cpp.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/gototable_pfa_node.dir/src/controlper/GoToTable.cpp.o[0m
+[ 50%] [32m[1mLinking CXX shared library libchecktable_pfa_node.so[0m
+[ 60%] Built target checktable_pfa_node
+[ 70%] [32m[1mLinking CXX shared library libcountpeople_pfa_node.so[0m
+[ 80%] [32m[1mLinking CXX executable control_main[0m
+[ 80%] Built target countpeople_pfa_node
+[ 80%] Built target control_main
+[ 90%] [32m[1mLinking CXX shared library libgotodoor_pfa_node.so[0m
+[100%] [32m[1mLinking CXX shared library libgototable_pfa_node.so[0m
+[100%] Built target gotodoor_pfa_node
+[100%] Built target gototable_pfa_node
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/lib/libgotodoor_pfa_node.so
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/lib/libcountpeople_pfa_node.so
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/lib/libchecktable_pfa_node.so
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/lib/libgototable_pfa_node.so
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/lib/pfa_restaurante/control_main
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/behavior_tree_xml/restaurante.xml
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/launch/astra_extion
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/launch/follow_person.launch.py
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/ament_index/resource_index/package_run_dependencies/pfa_restaurante
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/ament_index/resource_index/parent_prefix_path/pfa_restaurante
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/environment/ament_prefix_path.sh
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/environment/ament_prefix_path.dsv
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/environment/path.sh
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/environment/path.dsv
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/local_setup.bash
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/local_setup.sh
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/local_setup.zsh
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/local_setup.dsv
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/package.dsv
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/ament_index/resource_index/packages/pfa_restaurante
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/cmake/pfa_restauranteConfig.cmake
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/cmake/pfa_restauranteConfig-version.cmake
+-- Symlinking: /home/rumbahuh/asr_ws/src/proyecto-final-arqui-rumbacorp/install/pfa_restaurante/share/pfa_restaurante/package.xml

@@ -18,4 +18,3 @@ struct Mesa {
 }  // namespace controlper
 
 #endif  // CONTROLPER__MESA_HPP_
-

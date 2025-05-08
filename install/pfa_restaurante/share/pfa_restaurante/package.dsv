@@ -1,0 +1,11 @@
+source;share/pfa_restaurante/hook/cmake_prefix_path.ps1
+source;share/pfa_restaurante/hook/cmake_prefix_path.dsv
+source;share/pfa_restaurante/hook/cmake_prefix_path.sh
+source;share/pfa_restaurante/hook/ld_library_path_lib.ps1
+source;share/pfa_restaurante/hook/ld_library_path_lib.dsv
+source;share/pfa_restaurante/hook/ld_library_path_lib.sh
+source;share/pfa_restaurante/local_setup.bash
+source;share/pfa_restaurante/local_setup.dsv
+source;share/pfa_restaurante/local_setup.ps1
+source;share/pfa_restaurante/local_setup.sh
+source;share/pfa_restaurante/local_setup.zsh

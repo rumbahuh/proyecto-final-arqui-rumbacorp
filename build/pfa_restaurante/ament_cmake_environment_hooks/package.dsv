@@ -1,0 +1,4 @@
+source;share/pfa_restaurante/local_setup.bash
+source;share/pfa_restaurante/local_setup.dsv
+source;share/pfa_restaurante/local_setup.sh
+source;share/pfa_restaurante/local_setup.zsh
