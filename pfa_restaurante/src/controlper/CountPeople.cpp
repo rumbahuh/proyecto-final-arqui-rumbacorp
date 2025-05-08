@@ -19,25 +19,22 @@ CountPeople::CountPeople(const std::string& name, const BT::NodeConfiguration& c
     : BT::SyncActionNode(name, config) {}
 
 // Define los puertos proporcionados por este nodo
-BT::PortsList CountPeople::providedPorts() // se declara el puerto de salida de personas
+BT::PortsList CountPeople::providedPorts() // puerto de salida de personas
 {
-  return { BT::OutputPort<int>("personas") };  // Solo el número de personas va como puerto
+  return { BT::OutputPort<int>("personas") };
 }
 
-// Método principal que se ejecuta cuando se llama al nodo
 BT::NodeStatus CountPeople::tick()
 {
-  // Primero contamos las personas
   std::cout << "CountPeople ejecutandose" << std::endl;
 
   if (!contarPersonas()) {
-    return BT::NodeStatus::FAILURE; // Si falla, devuelve FAILURE
+    return BT::NodeStatus::FAILURE;
   }
 
   // Si contar personas tiene éxito, creamos las mesas
   crearMesas();
-
-  // Si todo salió bien, devolvemos SUCCESS
+  
   return BT::NodeStatus::SUCCESS;
 }
 

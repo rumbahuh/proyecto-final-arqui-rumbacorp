@@ -52,6 +52,7 @@ public:
         std::cout << "No hay mesas disponibles (mesa BIG ya ocupada)." << std::endl;
         return BT::NodeStatus::FAILURE;
       }
+      hablarFestival("Asignando mesa");
       std::cout << "Asignando a mesa BIG..." << std::endl;
       big.llena = true;
       bb->set("mesa_big", big);
@@ -64,6 +65,7 @@ public:
         std::cout << "No hay mesas disponibles (mesa SMALL ya ocupada)." << std::endl;
         return BT::NodeStatus::FAILURE;
       }
+      hablarFestival("Asignando mesa");
       std::cout << "Asignando a mesa SMALL..." << std::endl;
       small.llena = true;
       bb->set("mesa_small", small);

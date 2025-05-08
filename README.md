@@ -12,38 +12,27 @@
 La idea principal es la implementación de un acomodador de un restaurante.
 
 El kobuki irá desde su posición inicial al punto de entrada, donde se encontrará una cantidad
-X de personas. Mediante hri, el kobuki preguntará cuántos son y mediante un input se especificará el número de personas a acomodar.
-Dependiendo de la cantidad de personas (menos de 4 o entre 4 y 6) les llevará a la mesa adecuada, volviendo al punto donde se encuentran los clientes una vez acabada su acción.
-Si la cantidad de personas es superior a 6 o no hay mesas libres, el kobuki dirá que no hay
-mesas disponibles.
+X de personas. Ahí, kobuki preguntará cuántos son y mediante un input se especificará 
+el número de personas a acomodar.
 
 # Detalles Técnicos
 
-## Documentación
-Behavior Trees
-
-Nav2
-
-![HRI](https://github.com/rodperex/bt_nodes)
-
-
-## Poses
+## Mapa
 
 ![Image](https://github.com/user-attachments/assets/83baf1ba-ca17-4155-97d0-60e503555a83)
 
-Inicial
+**Posiciones usadas:** Inicial, Recibidor, mesa BIG (6 personas), mesa SMALL (4 personas)
 
-Recibidor
+## Especificaciones de lógica
 
-mesa BIG: 6
+Si la cantidad de personas es superior a 6, el kobuki dirá que no hay
+mesas disponibles.
 
-mesa SMALL: 4
-
-## Lógica
 Si la mesa de 4 personas está libre y llega un grupo de 6, el kobuki ha de 
-detectar que el grupo es demasiado grande y que no hay sitio.
+detectar que el grupo es demasiado grande y que no hay sitio, asimismo, elige la
+mesa más optima según el número de personas para sentar.
 
-## Uso
+# Uso
 **Disclaimer: Implementamos una copia de HRI en el repositorio, por lo que el paquete usado y modificado es el nuestro. Dará error con los duplicados.**
 
 **Kobuki**
@@ -65,7 +54,6 @@ El proceso que seguimos fue señalizar con el rivz2 las coordenadas que queríam
 ```
 ros2 run pfa_restaurante control_main
 ```
-
 
 # Apuntes
 Pese a que principalmente se quería implementar el uso del yolo para el recuento
