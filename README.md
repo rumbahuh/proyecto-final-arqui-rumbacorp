@@ -46,14 +46,20 @@ detectar que el grupo es demasiado grande y que no hay sitio.
 ```
 ros2 launch kobuki kobuki.launch.py lidar_a2:=true
 ```
-**Navegation**
+**Navegation**.
 ```
 ros2 launch kobuki navigation.launch.py
 ```
+Gracias a este comando también se abre el rviz2 con el que se puede visualizar el mapa por el que se mueve el kobuki.
+```
+ros2 run tf2_ros tf2_echo map base_link
+```
+El proceso que seguimos fue señalizar con el rivz2 las coordenadas que queríamos guardar en el blackboard, haciendo este ros2 run para poder visualizar las coordenadas exactas de los lugares a los que queremos mandar el robot.
 **Nodo**
 ```
 ros2 run pfa_restaurante control_main
 ```
+
 # Apuntes
 Pese a que principalmente se quería implementar el uso del yolo para el recuento
 de personas y la detección de la cantidad de gente en las mesas, por falta de tiempo
