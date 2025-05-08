@@ -80,6 +80,7 @@ mesa vacía.
 
 
 ## Video de implementación básica
+[![watch the video](https://github.com/rumbahuh/proyecto-final-arqui-rumbacorp/edit/main/p3.jpg)](https://www.youtube.com/watch?v=4J1Ffc5u-C8)
 
 
 **FECHA:** 9/5/2024 
