@@ -4,6 +4,8 @@
 
 ## Computation Graph
 
+![Image](https://github.com/user-attachments/assets/0b500ea4-316d-423c-924f-889c476a158d)
+
 ## BT
 ![Behavior Tree - pfa_restaurante](https://github.com/user-attachments/assets/de32e57e-c2a3-4e81-a0c0-c7a06d4b0fbc)
 
