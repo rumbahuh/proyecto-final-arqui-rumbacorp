@@ -7,7 +7,8 @@
 ![Image](https://github.com/user-attachments/assets/0b500ea4-316d-423c-924f-889c476a158d)
 
 ## BT
-![Behavior Tree - pfa_restaurante](https://github.com/user-attachments/assets/de32e57e-c2a3-4e81-a0c0-c7a06d4b0fbc)
+![Behavior Tree - pfa_restaurante](https://github.com/user-attachments/assets/27731d00-7d53-4a52-9150-73e719971a07)
+
 
 # Resumen
 La idea principal es la implementación de un acomodador de un restaurante.
