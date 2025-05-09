@@ -86,6 +86,7 @@ y vuelve a donde se encuentran los nuevos clientes para llevarles a la nueva mes
 
 
 ## Video de implementación básica
+Video de implementación básica previa a la adición de voz: 
 [![watch the video](https://github.com/rumbahuh/proyecto-final-arqui-rumbacorp/edit/main/p3.jpg)](https://www.youtube.com/watch?v=4J1Ffc5u-C8)
 
 
