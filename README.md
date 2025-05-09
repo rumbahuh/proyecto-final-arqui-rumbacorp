@@ -40,7 +40,7 @@ dice que no hay mesas disponibles y espera a un grupo más grande.
 
 **Kobuki**
 ```
-ros2 launch kobuki kobuki.launch.py lidar_a2:=true
+ros2 launch kobuki kobuki.launch.py lidar_a2:=true ##Comprueba que láser estas usando, este es el nuestro
 ```
 
 **Navegation**.
@@ -48,6 +48,7 @@ ros2 launch kobuki kobuki.launch.py lidar_a2:=true
 ros2 launch kobuki navigation.launch.py
 ```
 Gracias a este comando también se abre el rviz2 con el que se puede visualizar el mapa por el que se mueve el kobuki.
+APUNTE: Es mejor usar el mapa map_1744360757, ya que el map_31 puede que no funcione.
 ```
 ros2 run tf2_ros tf2_echo map base_link
 ```
@@ -63,10 +64,10 @@ ros2 run pfa_restaurante control_main
 sudo apt update
 sudo apt install festival festvox-kallpc16k ## Para la voz en inglés
 sudo apt install festvox-ellpc11k ##Para añadir la voz en Español (latino)
-
 ```
 
 # Apuntes
+
 Se quería implementar en un principo el uso del HRI, de hecho a llegado a estar
 parcialmente funcional (escuchaba pero no se procesaba lo que se decía, el
 speak hacía cosas raras pero compilaba...) en distintos puntos de la implementación,
@@ -93,5 +94,5 @@ y vuelve a donde se encuentran los nuevos clientes para llevarles a la nueva mes
 **AUTORES:**
   MarioC05 (Mario Casero)
   rumbahuh (Rebeca Castilla)
-  inarem13/inarem-jpg (Henar Contreras)
+  inarem13 & inarem-jpg (Henar Contreras)
   LoVeMi3 (Lorea Vera)
